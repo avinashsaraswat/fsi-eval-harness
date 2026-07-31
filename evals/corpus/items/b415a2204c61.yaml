@@ -1,0 +1,221 @@
+item_id: b415a2204c61
+ticker: MSFT
+accession: 0001193125-26-191507
+form: 10-Q
+report_date: '2026-03-31'
+brief:
+  ticker: MSFT
+  narrative: '**Microsoft (MSFT) — 10-Q, fiscal quarter ended March 31, 2026**
+
+
+    Microsoft delivered a robust fiscal Q3, with revenue climbing to $82.886B, up 18.3% from $70.066B
+    in the year-ago quarter. Growth of this magnitude at Microsoft''s scale reflects sustained enterprise
+    cloud and AI demand and underscores the durability of the company''s top-line momentum.
+
+
+    Profitability expanded faster than revenue. Net income rose to $31.778B from $25.824B, a 23.1% increase,
+    while diluted EPS reached $4.27 versus $3.46 — a gain amplified by a modest reduction in diluted shares
+    outstanding to 7.445B from 7.461B, evidence of continued buyback discipline. Operating income of $38.398B
+    (up from $32.000B) translated to an operating margin of 46.3%, a healthy structural profitability
+    signal.
+
+
+    Gross profit of $56.058B against $48.147B held a gross margin of 67.6%, though cost of revenue grew
+    to $26.828B from $21.919B — a 22.4% increase outpacing revenue growth and worth monitoring as capital-intensive
+    AI infrastructure scales. R&D investment rose to $8.915B from $8.198B, a measured 8.7% step-up that
+    signals continued innovation spend without margin erosion.
+
+
+    Cash generation was exceptional. Operating cash flow surged to $46.679B, up 26.0% from $37.044B, comfortably
+    funding both buybacks and heavy capital deployment. Cash and equivalents stood at $32.105B.
+
+
+    The balance sheet expanded materially, with total assets reaching $694.228B from $562.624B a year
+    earlier — a 23.4% jump reflecting aggressive AI and datacenter investment. Stockholders'' equity grew
+    to $414.367B from $321.891B, keeping leverage well-controlled.
+
+
+    **Why it matters:** Microsoft is compounding earnings faster than revenue while simultaneously funding
+    a historic build-out of AI infrastructure. The key watch-item is cost-of-revenue growth outpacing
+    sales — a natural consequence of capacity investment that bears monitoring against future revenue
+    realization.'
+  claims:
+  - id: c1
+    kind: numeric
+    text: Microsoft delivered a robust fiscal Q3, with revenue climbing to $82.886B, up 18.3% from $70.066B
+      in the year-ago quarter.
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q ending 2026-03-31
+    unit: pct
+    value: 18.3
+    basis: derived
+    source_fact_ids:
+    - f1
+    - f2
+    derivation: (f1 - f2) / f2 * 100
+  - id: c2
+    kind: numeric
+    text: Net income rose to $31.778B from $25.824B, a 23.1% increase.
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q ending 2026-03-31
+    unit: pct
+    value: 23.1
+    basis: derived
+    source_fact_ids:
+    - f3
+    - f4
+    derivation: (f3 - f4) / f4 * 100
+  - id: c4
+    kind: numeric
+    text: A modest reduction in diluted shares outstanding to 7.445B from 7.461B, evidence of continued
+      buyback discipline.
+    concept: shares_outstanding_diluted
+    gaap_tag: WeightedAverageNumberOfDilutedSharesOutstanding
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q ending 2026-03-31
+    unit: shares
+    value: 7445000000.0
+    basis: reported
+    source_fact_ids:
+    - f23
+    derivation: null
+  - id: c5
+    kind: numeric
+    text: Operating income of $38.398B (up from $32.000B) translated to an operating margin of 46.3%.
+    concept: operating_income
+    gaap_tag: OperatingIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q ending 2026-03-31
+    unit: pct
+    value: 46.3
+    basis: derived
+    source_fact_ids:
+    - f7
+    - f1
+    derivation: f7 / f1 * 100
+  - id: c6
+    kind: numeric
+    text: Gross profit of $56.058B against $48.147B held a gross margin of 67.6%.
+    concept: gross_profit
+    gaap_tag: GrossProfit
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q ending 2026-03-31
+    unit: pct
+    value: 67.6
+    basis: derived
+    source_fact_ids:
+    - f9
+    - f1
+    derivation: f9 / f1 * 100
+  - id: c7
+    kind: numeric
+    text: Cost of revenue grew to $26.828B from $21.919B — a 22.4% increase outpacing revenue growth.
+    concept: cost_of_revenue
+    gaap_tag: CostOfGoodsAndServicesSold
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q ending 2026-03-31
+    unit: pct
+    value: 22.4
+    basis: derived
+    source_fact_ids:
+    - f21
+    - f22
+    derivation: (f21 - f22) / f22 * 100
+  - id: c8
+    kind: numeric
+    text: R&D investment rose to $8.915B from $8.198B, a measured 8.7% step-up.
+    concept: rd_expense
+    gaap_tag: ResearchAndDevelopmentExpense
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q ending 2026-03-31
+    unit: pct
+    value: 8.7
+    basis: derived
+    source_fact_ids:
+    - f19
+    - f20
+    derivation: (f19 - f20) / f20 * 100
+  - id: c9
+    kind: numeric
+    text: Operating cash flow surged to $46.679B, up 26.0% from $37.044B.
+    concept: operating_cash_flow
+    gaap_tag: NetCashProvidedByUsedInOperatingActivities
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q ending 2026-03-31
+    unit: pct
+    value: 26.0
+    basis: derived
+    source_fact_ids:
+    - f11
+    - f12
+    derivation: (f11 - f12) / f12 * 100
+  - id: c10
+    kind: numeric
+    text: Total assets reaching $694.228B from $562.624B a year earlier — a 23.4% jump.
+    concept: assets
+    gaap_tag: Assets
+    period:
+      type: instant
+      start: null
+      end: '2026-03-31'
+      fiscal_label: as of 2026-03-31
+    unit: pct
+    value: 23.4
+    basis: derived
+    source_fact_ids:
+    - f13
+    - f14
+    derivation: (f13 - f14) / f14 * 100
+  - id: c11
+    kind: qualitative
+    text: Growth of 18.3% at Microsoft's scale reflects sustained enterprise cloud and AI demand and underscores
+      the durability of the company's top-line momentum.
+    quality: tone
+    supporting_claim_ids:
+    - c1
+    - c9
+  - id: c12
+    kind: qualitative
+    text: Cost-of-revenue growth of 22.4% outpacing revenue growth is a natural consequence of AI infrastructure
+      capacity investment but bears monitoring against future revenue realization.
+    quality: materiality
+    supporting_claim_ids:
+    - c7
+    - c10
+  - id: c13
+    kind: qualitative
+    text: Microsoft is compounding earnings faster than revenue while simultaneously funding a historic
+      build-out of AI infrastructure, keeping leverage well-controlled via equity growth.
+    quality: why_it_matters
+    supporting_claim_ids:
+    - c2
+    - c5
+    - c10

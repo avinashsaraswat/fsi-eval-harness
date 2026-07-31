@@ -1,0 +1,234 @@
+item_id: dec9238d987f
+ticker: NVDA
+accession: 0001045810-26-000052
+form: 10-Q
+report_date: '2026-04-26'
+brief:
+  ticker: NVDA
+  narrative: 'NVIDIA''s fiscal Q1 (ended 2026-04-26) extended its extraordinary growth trajectory, with
+    revenue reaching $81.6B, up 85.2% from $44.1B in the prior-year quarter. The demand for accelerated
+    computing and AI infrastructure continues to drive top-line expansion at a scale rarely seen at this
+    revenue base. Profitability outpaced even the revenue surge: net income jumped 210.6% to $58.3B from
+    $18.8B, while diluted EPS climbed to $2.39 from $0.76, a 214.5% increase. Operating income more than
+    doubled to $53.5B from $21.6B, and gross profit expanded to $61.2B from $26.7B. The company delivered
+    a striking gross margin of 74.9%, alongside an operating margin of 65.6%, reflecting favorable product
+    mix and pricing power in its data-center franchise. Cost of revenue rose only modestly to $20.5B from
+    $17.4B, underscoring severe operating leverage as revenue nearly doubled. R&D investment continued
+    to scale, reaching $6.3B versus $4.0B a year earlier, signaling sustained commitment to next-generation
+    architectures. Cash generation was robust: operating cash flow of $50.3B nearly doubled from $27.4B,
+    providing ample capacity for buybacks and reinvestment. The balance sheet ballooned, with total assets
+    of $259.5B (up from $125.3B) and stockholders'' equity of $195.5B (up from $83.8B), reflecting massive
+    retained-earnings accumulation. Cash and equivalents stood at $13.2B, down from $15.2B, though this
+    understates total liquidity given NVIDIA''s marketable-securities holdings. Weighted-average diluted
+    shares declined slightly to 24,391M from 24,611M, evidence of ongoing repurchase activity that modestly
+    amplified per-share results. Overall, the quarter reinforces NVIDIA''s position as the dominant beneficiary
+    of the AI compute buildout, with margins and cash flow validating durable competitive advantages.
+    The key watch item remains sustainability of hyperscaler demand and margin defensibility as competition
+    and supply normalize, but the reported figures leave little doubt about the current strength of the
+    franchise.'
+  claims:
+  - id: c1
+    kind: numeric
+    text: revenue reaching $81.6B, up 85.2% from $44.1B in the prior-year quarter
+    concept: revenue
+    gaap_tag: Revenues
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026
+    unit: USD
+    value: 81615000000.0
+    basis: reported
+    source_fact_ids:
+    - f1
+    derivation: null
+  - id: c2
+    kind: numeric
+    text: revenue reaching $81.6B, up 85.2% from $44.1B in the prior-year quarter
+    concept: revenue
+    gaap_tag: Revenues
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026 YoY
+    unit: pct
+    value: 85.23
+    basis: derived
+    source_fact_ids:
+    - f1
+    - f2
+    derivation: (f1 - f2) / f2 * 100
+  - id: c3
+    kind: numeric
+    text: net income jumped 210.6% to $58.3B from $18.8B
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026 YoY
+    unit: pct
+    value: 210.63
+    basis: derived
+    source_fact_ids:
+    - f3
+    - f4
+    derivation: (f3 - f4) / f4 * 100
+  - id: c4
+    kind: numeric
+    text: diluted EPS climbed to $2.39 from $0.76, a 214.5% increase
+    concept: eps_diluted
+    gaap_tag: EarningsPerShareDiluted
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026
+    unit: USD/share
+    value: 2.39
+    basis: reported
+    source_fact_ids:
+    - f5
+    derivation: null
+  - id: c5
+    kind: numeric
+    text: Operating income more than doubled to $53.5B from $21.6B
+    concept: operating_income
+    gaap_tag: OperatingIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026
+    unit: USD
+    value: 53536000000.0
+    basis: reported
+    source_fact_ids:
+    - f7
+    derivation: null
+  - id: c6
+    kind: numeric
+    text: The company delivered a striking gross margin of 74.9%
+    concept: gross_profit
+    gaap_tag: GrossProfit
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 74.93
+    basis: derived
+    source_fact_ids:
+    - f9
+    - f1
+    derivation: f9 / f1 * 100
+  - id: c7
+    kind: numeric
+    text: alongside an operating margin of 65.6%
+    concept: operating_income
+    gaap_tag: OperatingIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 65.6
+    basis: derived
+    source_fact_ids:
+    - f7
+    - f1
+    derivation: f7 / f1 * 100
+  - id: c8
+    kind: numeric
+    text: R&D investment continued to scale, reaching $6.3B versus $4.0B a year earlier
+    concept: rd_expense
+    gaap_tag: ResearchAndDevelopmentExpense
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026
+    unit: USD
+    value: 6321000000.0
+    basis: reported
+    source_fact_ids:
+    - f19
+    derivation: null
+  - id: c9
+    kind: numeric
+    text: operating cash flow of $50.3B nearly doubled from $27.4B
+    concept: operating_cash_flow
+    gaap_tag: NetCashProvidedByUsedInOperatingActivities
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026
+    unit: USD
+    value: 50344000000.0
+    basis: reported
+    source_fact_ids:
+    - f11
+    derivation: null
+  - id: c10
+    kind: numeric
+    text: with total assets of $259.5B (up from $125.3B) and stockholders' equity of $195.5B
+    concept: assets
+    gaap_tag: Assets
+    period:
+      type: instant
+      start: null
+      end: '2026-04-26'
+      fiscal_label: as of 2026-04-26
+    unit: USD
+    value: 259474000000.0
+    basis: reported
+    source_fact_ids:
+    - f13
+    derivation: null
+  - id: c11
+    kind: numeric
+    text: Weighted-average diluted shares declined slightly to 24,391M from 24,611M
+    concept: shares_outstanding_diluted
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-26'
+      end: '2026-04-26'
+      fiscal_label: Q1 FY2026
+    unit: shares
+    value: 24391000000.0
+    basis: reported
+    source_fact_ids:
+    - f23
+    derivation: null
+  - id: c12
+    kind: qualitative
+    text: The quarter reinforces NVIDIA's position as the dominant beneficiary of the AI compute buildout,
+      with revenue nearly doubling year-over-year at an already massive base.
+    quality: why_it_matters
+    supporting_claim_ids:
+    - c1
+    - c2
+  - id: c13
+    kind: qualitative
+    text: Severe operating leverage is evident as gross and operating margins reached 74.9% and 65.6%,
+      driving net income growth that far outpaced revenue growth.
+    quality: materiality
+    supporting_claim_ids:
+    - c3
+    - c6
+    - c7
+  - id: c14
+    kind: qualitative
+    text: Robust operating cash flow and continued R&D scaling signal management confidence in sustained
+      AI demand, while the key risk remains hyperscaler demand durability and margin defensibility.
+    quality: tone
+    supporting_claim_ids:
+    - c8
+    - c9

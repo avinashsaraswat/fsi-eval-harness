@@ -1,0 +1,14 @@
+run_id: "mockA"
+ticker: "MSFT"
+brief_path: "out/mockA/MSFT/brief.md"
+generated_by: "mock"
+status: "RECONCILED"
+auto:
+  factual_precision: 5.0
+  completeness: 5.0
+expert:
+  materiality_judgment: null
+  clarity: null
+  notes: ""
+self_grade: 5.0
+expert_grade: null

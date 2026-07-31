@@ -1,0 +1,234 @@
+item_id: 3afcd6ada9ef
+ticker: KO
+accession: 0001628280-26-028802
+form: 10-Q
+report_date: '2026-04-03'
+brief:
+  ticker: KO
+  narrative: '## Coca-Cola (KO) — Q1 FY26 10-Q Signal Brief
+
+
+    Coca-Cola opened FY26 with a strong quarter, posting revenue of $12,597M for the period ending April
+    3, 2026, up 12.1% from $11,129M a year earlier. The top-line beat flowed through to profitability:
+    net income rose to $3,924M from $3,330M, a 17.8% gain, while diluted EPS climbed to $0.91 from $0.77,
+    an 18.2% increase. With diluted shares essentially flat at 4,314M versus 4,313M, the EPS growth was
+    almost entirely operational rather than buyback-driven.
+
+
+    Gross profit expanded to $7,852M from $6,966M, holding the gross margin at 63.0%, a modest improvement
+    over the prior year''s 62.6% despite cost of revenue rising to $4,620M from $4,163M. Operating income
+    of $4,359M (up 19.1% from $3,659M) demonstrates operating leverage, with operating margin reaching
+    35.0% versus 32.9% last year — evidence of disciplined cost management and favorable pricing.
+
+
+    The standout signal is cash generation. Operating cash flow swung to a positive $2,021M from a negative
+    $(5,202)M in the prior-year quarter, a dramatic reversal that reflects normalization from a large
+    prior-year outflow (likely a one-time settlement or tax payment). This inflection materially de-risks
+    the cash story heading into the year.
+
+
+    The balance sheet strengthened as well. Total assets reached $104,217M against $101,716M a year ago,
+    and stockholders'' equity rose sharply to $33,633M from $26,202M, a 28.4% increase that improves the
+    equity cushion. Cash and equivalents grew to $10,574M from $8,417M, giving management ample flexibility
+    for dividends, buybacks, and bolt-on investments.
+
+
+    **Why it matters:** KO delivered broad-based margin expansion, double-digit earnings growth, and a
+    decisive operating-cash-flow recovery — a combination that supports the durability of its dividend
+    and defensive positioning. The equity build and cash accumulation reinforce a conservative, high-quality
+    profile for income-oriented investors.'
+  claims:
+  - id: c1
+    kind: numeric
+    text: Coca-Cola opened FY26 with a strong quarter, posting revenue of $12,597M for the period ending
+      April 3, 2026, up 12.1% from $11,129M a year earlier.
+    concept: revenue
+    gaap_tag: Revenues
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-04-03'
+      fiscal_label: Q1 FY26
+    unit: USD
+    value: 12596720000.0
+    basis: reported
+    source_fact_ids:
+    - f1
+    derivation: null
+  - id: c2
+    kind: numeric
+    text: revenue of $12,472M for the period ending April 3, 2026, up 12.1% from $11,129M a year earlier
+    concept: revenue
+    gaap_tag: Revenues
+    period:
+      type: duration
+      start: '2025-01-01'
+      end: '2025-03-28'
+      fiscal_label: Q1 FY25
+    unit: pct
+    value: 12.07
+    basis: derived
+    source_fact_ids:
+    - f1
+    - f2
+    derivation: (f1 - f2) / f2 * 100
+  - id: c3
+    kind: numeric
+    text: net income rose to $3,924M from $3,330M, a 17.8% gain
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-04-03'
+      fiscal_label: Q1 FY26
+    unit: pct
+    value: 17.84
+    basis: derived
+    source_fact_ids:
+    - f3
+    - f4
+    derivation: (f3 - f4) / f4 * 100
+  - id: c4
+    kind: numeric
+    text: diluted EPS climbed to $0.91 from $0.77, an 18.2% increase
+    concept: eps_diluted
+    gaap_tag: EarningsPerShareDiluted
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-04-03'
+      fiscal_label: Q1 FY26
+    unit: USD/share
+    value: 0.91
+    basis: reported
+    source_fact_ids:
+    - f5
+    derivation: null
+  - id: c5
+    kind: numeric
+    text: With diluted shares essentially flat at 4,314M versus 4,313M, the EPS growth was almost entirely
+      operational.
+    concept: shares_outstanding_diluted
+    gaap_tag: WeightedAverageNumberOfDilutedSharesOutstanding
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-04-03'
+      fiscal_label: Q1 FY26
+    unit: shares
+    value: 4314000000.0
+    basis: reported
+    source_fact_ids:
+    - f21
+    derivation: null
+  - id: c6
+    kind: numeric
+    text: Gross profit expanded to $7,852M from $6,966M, holding the gross margin at 63.0%, a modest improvement
+      over the prior year's 62.6%.
+    concept: gross_profit
+    gaap_tag: GrossProfit
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-04-03'
+      fiscal_label: Q1 FY26
+    unit: pct
+    value: 62.96
+    basis: derived
+    source_fact_ids:
+    - f9
+    - f1
+    derivation: f9 / f1 * 100
+  - id: c7
+    kind: numeric
+    text: Operating income of $4,359M (up 19.1% from $3,659M) demonstrates operating leverage, with operating
+      margin reaching 35.0%.
+    concept: operating_income
+    gaap_tag: OperatingIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-04-03'
+      fiscal_label: Q1 FY26
+    unit: pct
+    value: 34.95
+    basis: derived
+    source_fact_ids:
+    - f7
+    - f1
+    derivation: f7 / f1 * 100
+  - id: c8
+    kind: numeric
+    text: Operating cash flow swung to a positive $2,021M from a negative $(5,202)M in the prior-year
+      quarter.
+    concept: operating_cash_flow
+    gaap_tag: NetCashProvidedByUsedInOperatingActivities
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-04-03'
+      fiscal_label: Q1 FY26
+    unit: USD
+    value: 2021000000.0
+    basis: reported
+    source_fact_ids:
+    - f11
+    derivation: null
+  - id: c9
+    kind: numeric
+    text: stockholders' equity rose sharply to $33,633M from $26,202M, a 28.4% increase.
+    concept: stockholders_equity
+    gaap_tag: StockholdersEquity
+    period:
+      type: instant
+      start: null
+      end: '2026-04-03'
+      fiscal_label: Q1 FY26
+    unit: pct
+    value: 28.36
+    basis: derived
+    source_fact_ids:
+    - f15
+    - f16
+    derivation: (f15 - f16) / f16 * 100
+  - id: c10
+    kind: numeric
+    text: Cash and equivalents grew to $10,574M from $8,417M.
+    concept: cash_and_equivalents
+    gaap_tag: CashAndCashEquivalentsAtCarryingValue
+    period:
+      type: instant
+      start: null
+      end: '2026-04-03'
+      fiscal_label: Q1 FY26
+    unit: USD
+    value: 10574000000.0
+    basis: reported
+    source_fact_ids:
+    - f17
+    derivation: null
+  - id: c11
+    kind: qualitative
+    text: The dramatic reversal in operating cash flow from a large prior-year outflow to positive generation
+      materially de-risks the cash story heading into the year.
+    quality: materiality
+    supporting_claim_ids:
+    - c8
+  - id: c12
+    kind: qualitative
+    text: Broad-based margin expansion and double-digit earnings growth reflect disciplined cost management
+      and favorable pricing.
+    quality: why_it_matters
+    supporting_claim_ids:
+    - c3
+    - c6
+    - c7
+  - id: c13
+    kind: qualitative
+    text: The equity build and cash accumulation reinforce a conservative, high-quality defensive profile
+      that supports dividend durability for income-oriented investors.
+    quality: tone
+    supporting_claim_ids:
+    - c9
+    - c10

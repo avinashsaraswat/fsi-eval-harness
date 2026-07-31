@@ -1,0 +1,241 @@
+item_id: 4786fa0bdbea
+ticker: CAT
+accession: 0000018230-26-000021
+form: 10-Q
+report_date: '2026-03-31'
+brief:
+  ticker: CAT
+  narrative: '**Caterpillar (CAT) — Q1 FY2026 10-Q Signal Brief**
+
+
+    Caterpillar delivered a robust first quarter, with revenue of $17.42B, up 22.2% from $14.25B in Q1
+    2025. The top-line acceleration flowed through to strong bottom-line gains: net income rose to $2.55B
+    from $2.00B, a 27.2% increase, while diluted EPS climbed to $5.47 from $4.20, a 30.2% jump. Notably,
+    EPS growth outpaced net income growth, aided by a reduced diluted share count of 465.8M versus 477.1M
+    a year ago, reflecting continued buyback activity that concentrates earnings per share.
+
+
+    Operating income expanded to $3.09B from $2.58B, up 19.6%, though the operating margin of 17.7% compressed
+    modestly versus 18.1% in the prior-year period. This margin softening stems from cost of revenue rising
+    26.1% to $11.31B — outpacing revenue growth and pressuring gross profitability. R&D spend increased
+    to $537M from $480M, a 11.9% rise, signaling ongoing investment in product and technology despite
+    margin headwinds.
+
+
+    Cash generation improved meaningfully: operating cash flow reached $1.87B, up 45.1% from $1.29B, underscoring
+    healthy earnings quality and working capital discipline. The balance sheet expanded, with total assets
+    of $95.55B up from $84.97B, while stockholders'' equity edged up to $18.66B from $18.07B. Cash and
+    equivalents stood at $4.07B, providing ample liquidity.
+
+
+    **Why it matters:** The combination of double-digit revenue growth, expanding cash flow, and disciplined
+    share reduction positions CAT favorably. However, investors should monitor cost inflation, as cost
+    of revenue growth exceeding revenue growth is the primary driver of the modest margin compression.
+    Overall, the quarter reflects strong operational momentum tempered by input cost pressures worth watching
+    in coming periods.
+
+
+    The results reflect broad-based improvement across every operating segment.'
+  claims:
+  - id: c1
+    kind: numeric
+    text: Caterpillar delivered a robust first quarter, with revenue of $17.42B, up 22.2% from $14.25B
+      in Q1 2025.
+    concept: revenue
+    gaap_tag: Revenues
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: USD
+    value: 17415000000.0
+    basis: reported
+    source_fact_ids:
+    - f1
+    derivation: null
+  - id: c2
+    kind: numeric
+    text: revenue of $17.42B, up 22.2% from $14.25B in Q1 2025
+    concept: revenue
+    gaap_tag: Revenues
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 22.22
+    basis: derived
+    source_fact_ids:
+    - f1
+    - f2
+    derivation: (f1 - f2) / f2 * 100
+  - id: c3
+    kind: numeric
+    text: net income rose to $2.55B from $2.00B, a 27.2% increase
+    concept: net_income
+    gaap_tag: ProfitLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 27.21
+    basis: derived
+    source_fact_ids:
+    - f3
+    - f4
+    derivation: (f3 - f4) / f4 * 100
+  - id: c4
+    kind: numeric
+    text: diluted EPS climbed to $5.47 from $4.20, a 30.2% jump
+    concept: eps_diluted
+    gaap_tag: EarningsPerShareDiluted
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 30.24
+    basis: derived
+    source_fact_ids:
+    - f5
+    - f6
+    derivation: (f5 - f6) / f6 * 100
+  - id: c5
+    kind: numeric
+    text: a reduced diluted share count of 465.8M versus 477.1M a year ago
+    concept: shares_outstanding_diluted
+    gaap_tag: WeightedAverageNumberOfDilutedSharesOutstanding
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: shares
+    value: 465800000.0
+    basis: reported
+    source_fact_ids:
+    - f21
+    derivation: null
+  - id: c6
+    kind: numeric
+    text: Operating income expanded to $3.09B from $2.58B, up 19.6%
+    concept: operating_income
+    gaap_tag: OperatingIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 19.62
+    basis: derived
+    source_fact_ids:
+    - f7
+    - f8
+    derivation: (f7 - f8) / f8 * 100
+  - id: c7
+    kind: numeric
+    text: the operating margin of 17.7% compressed modestly versus 18.1% in the prior-year period
+    concept: operating_income
+    gaap_tag: OperatingIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 17.71
+    basis: derived
+    source_fact_ids:
+    - f7
+    - f1
+    derivation: f7 / f1 * 100
+  - id: c8
+    kind: numeric
+    text: cost of revenue rising 26.1% to $11.31B
+    concept: cost_of_revenue
+    gaap_tag: CostOfRevenue
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 26.11
+    basis: derived
+    source_fact_ids:
+    - f19
+    - f20
+    derivation: (f19 - f20) / f20 * 100
+  - id: c9
+    kind: numeric
+    text: operating cash flow reached $1.87B, up 45.1% from $1.29B
+    concept: operating_cash_flow
+    gaap_tag: NetCashProvidedByUsedInOperatingActivities
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 45.07
+    basis: derived
+    source_fact_ids:
+    - f9
+    - f10
+    derivation: (f9 - f10) / f10 * 100
+  - id: c10
+    kind: numeric
+    text: R&D spend increased to $537M from $480M, a 11.9% rise
+    concept: rd_expense
+    gaap_tag: ResearchAndDevelopmentExpense
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 FY2026
+    unit: pct
+    value: 11.88
+    basis: derived
+    source_fact_ids:
+    - f17
+    - f18
+    derivation: (f17 - f18) / f18 * 100
+  - id: c11
+    kind: qualitative
+    text: The combination of double-digit revenue growth, expanding cash flow, and disciplined share reduction
+      positions CAT favorably for continued earnings momentum.
+    quality: why_it_matters
+    supporting_claim_ids:
+    - c2
+    - c9
+    - c5
+  - id: c12
+    kind: qualitative
+    text: Cost inflation is the primary driver of modest margin compression, as cost of revenue growth
+      exceeds revenue growth — a key risk to monitor.
+    quality: materiality
+    supporting_claim_ids:
+    - c8
+    - c2
+    - c7
+  - id: c13
+    kind: qualitative
+    text: EPS growth outpacing net income growth reflects a positive buyback-driven earnings concentration
+      story.
+    quality: tone
+    supporting_claim_ids:
+    - c3
+    - c4
+    - c5
+  - id: qx-phantom_citation
+    kind: qualitative
+    text: The results reflect broad-based improvement across every operating segment.
+    quality: materiality
+    supporting_claim_ids:
+    - n99x

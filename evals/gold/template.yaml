@@ -1,0 +1,20 @@
+# One grading record per brief. Copy to briefs/<run_id>-<ticker>.yaml
+run_id: ""
+ticker: ""
+brief_path: ""            # out/<run_id>/<ticker>/brief.md
+generated_by: ""          # model id or "mock"
+status: ""                # RECONCILED | PARTIAL
+
+# Auto-filled by evals/seed.py from metrics.json — expert may override (note why).
+auto:
+  factual_precision: null   # 1-5
+  completeness: null        # 1-5
+
+# Human expert fills these two (1-5) + optional notes.
+expert:
+  materiality_judgment: null
+  clarity: null
+  notes: ""
+
+self_grade: null            # mean(auto.*), filled by seed.py
+expert_grade: null          # mean(all four) once expert dims exist, filled by correlation.py --refresh

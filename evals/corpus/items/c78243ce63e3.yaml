@@ -1,0 +1,214 @@
+item_id: c78243ce63e3
+ticker: AAPL
+accession: 0000320193-26-000013
+form: 10-Q
+report_date: '2026-03-28'
+brief:
+  ticker: AAPL
+  narrative: '## Apple Inc. (AAPL) — Fiscal Q2 2026 10-Q Signal Brief
+
+
+    **Headline:** Apple delivered a strong March-quarter print, with revenue of $111.18B, up 16.6% from
+    $95.36B a year ago. The top-line acceleration flowed through to earnings, as net income rose to $29.58B
+    from $24.78B, a 19.4% increase. — outpacing net income growth thanks to a reduced diluted share count
+    of 14.73B shares, down from 15.06B, reflecting continued buyback activity.
+
+
+    **Margins & operating leverage:** Gross profit expanded to $54.78B from $44.87B, lifting gross margin
+    to 49.3% of revenue from 47.1% a year earlier — a 220bp improvement that signals favorable mix and
+    pricing discipline. Operating income climbed to $35.89B from $29.59B, up 21.3%, demonstrating operating
+    leverage despite heavier investment. R&D expense increased to $11.42B from $8.55B, a 33.6% jump, underscoring
+    Apple''s aggressive innovation spend that outpaced revenue growth.
+
+
+    **Cash generation & balance sheet:** First-half operating cash flow surged to $82.63B from $53.89B,
+    a 53.3% increase, reinforcing Apple''s cash-machine reputation. Cash and equivalents stood at $45.57B,
+    up from $28.16B. Total assets grew to $371.08B, while stockholders'' equity rose sharply to $106.49B
+    from $66.80B — a notable rebuild of the equity base that may reflect moderated capital returns or
+    retained earnings accumulation.
+
+
+    **Why it matters:** The combination of double-digit revenue growth, margin expansion, and outsized
+    cash flow growth positions Apple favorably. The 220bp gross-margin lift and 33.6% R&D ramp suggest
+    management is reinvesting from a position of pricing strength rather than defending share. The equity
+    rebuild materially de-risks the balance sheet.
+
+
+    **Tone:** The filing reads constructively — accelerating fundamentals across revenue, earnings, and
+    cash flow with no evident stress signals.'
+  claims:
+  - id: c1
+    kind: numeric
+    text: Apple delivered a strong March-quarter print, with revenue of $111.18B, up 16.6% from $95.36B
+      a year ago.
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2025-12-28'
+      end: '2026-03-28'
+      fiscal_label: Q2 FY2026
+    unit: pct
+    value: 16.6
+    basis: derived
+    source_fact_ids:
+    - f1
+    - f2
+    derivation: (f1 - f2) / f2 * 100
+  - id: c2
+    kind: numeric
+    text: net income rose to $29.58B from $24.78B, a 19.4% increase
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2025-12-28'
+      end: '2026-03-28'
+      fiscal_label: Q2 FY2026
+    unit: pct
+    value: 19.4
+    basis: derived
+    source_fact_ids:
+    - f3
+    - f4
+    derivation: (f3 - f4) / f4 * 100
+  - id: c4
+    kind: numeric
+    text: a reduced diluted share count of 14.73B shares, down from 15.06B
+    concept: shares_outstanding_diluted
+    gaap_tag: WeightedAverageNumberOfDilutedSharesOutstanding
+    period:
+      type: duration
+      start: '2025-12-28'
+      end: '2026-03-28'
+      fiscal_label: Q2 FY2026
+    unit: shares
+    value: 14725873000.0
+    basis: reported
+    source_fact_ids:
+    - f23
+    derivation: null
+  - id: c5
+    kind: numeric
+    text: lifting gross margin to 49.3% of revenue from 47.1% a year earlier — a 220bp improvement
+    concept: gross_profit
+    gaap_tag: GrossProfit
+    period:
+      type: duration
+      start: '2025-12-28'
+      end: '2026-03-28'
+      fiscal_label: Q2 FY2026
+    unit: pct
+    value: 49.3
+    basis: derived
+    source_fact_ids:
+    - f9
+    - f1
+    derivation: f9 / f1 * 100
+  - id: c6
+    kind: numeric
+    text: Operating income climbed to $35.89B from $29.59B, up 21.3%
+    concept: operating_income
+    gaap_tag: OperatingIncomeLoss
+    period:
+      type: duration
+      start: '2025-12-28'
+      end: '2026-03-28'
+      fiscal_label: Q2 FY2026
+    unit: pct
+    value: 21.3
+    basis: derived
+    source_fact_ids:
+    - f7
+    - f8
+    derivation: (f7 - f8) / f8 * 100
+  - id: c7
+    kind: numeric
+    text: R&D expense increased to $11.42B from $8.55B, a 33.6% jump
+    concept: rd_expense
+    gaap_tag: ResearchAndDevelopmentExpense
+    period:
+      type: duration
+      start: '2025-12-28'
+      end: '2026-03-28'
+      fiscal_label: Q2 FY2026
+    unit: pct
+    value: 33.6
+    basis: derived
+    source_fact_ids:
+    - f19
+    - f20
+    derivation: (f19 - f20) / f20 * 100
+  - id: c8
+    kind: numeric
+    text: First-half operating cash flow surged to $82.63B from $53.89B, a 53.3% increase
+    concept: operating_cash_flow
+    gaap_tag: NetCashProvidedByUsedInOperatingActivities
+    period:
+      type: duration
+      start: '2025-09-28'
+      end: '2026-03-28'
+      fiscal_label: H1 FY2026
+    unit: pct
+    value: 53.3
+    basis: derived
+    source_fact_ids:
+    - f11
+    - f12
+    derivation: (f11 - f12) / f12 * 100
+  - id: c9
+    kind: numeric
+    text: stockholders' equity rose sharply to $106.49B from $66.80B
+    concept: stockholders_equity
+    gaap_tag: StockholdersEquity
+    period:
+      type: instant
+      start: null
+      end: '2026-03-28'
+      fiscal_label: As of 2026-03-28
+    unit: USD
+    value: 106491000000.0
+    basis: reported
+    source_fact_ids:
+    - f15
+    derivation: null
+  - id: c10
+    kind: numeric
+    text: Cash and equivalents stood at $45.57B, up from $28.16B.
+    concept: cash_and_equivalents
+    gaap_tag: CashAndCashEquivalentsAtCarryingValue
+    period:
+      type: instant
+      start: null
+      end: '2026-03-28'
+      fiscal_label: As of 2026-03-28
+    unit: USD
+    value: 45572000000.0
+    basis: reported
+    source_fact_ids:
+    - f17
+    derivation: null
+  - id: c11
+    kind: qualitative
+    text: The 220bp gross-margin lift alongside a 33.6% R&D ramp suggests management is reinvesting from
+      a position of pricing strength rather than defending market share.
+    quality: why_it_matters
+    supporting_claim_ids:
+    - c5
+    - c7
+  - id: c12
+    kind: qualitative
+    text: The sharp rebuild in stockholders' equity to $106.49B from $66.80B materially de-risks the balance
+      sheet and is a financially material development.
+    quality: materiality
+    supporting_claim_ids:
+    - c9
+  - id: c13
+    kind: qualitative
+    text: The filing reads constructively, with accelerating fundamentals across revenue, earnings, and
+      cash flow and no evident stress signals.
+    quality: tone
+    supporting_claim_ids:
+    - c1
+    - c2
+    - c8

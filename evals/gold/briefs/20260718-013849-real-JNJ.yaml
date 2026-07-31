@@ -1,0 +1,14 @@
+run_id: 20260718-013849-real
+ticker: JNJ
+brief_path: out/20260718-013849-real/JNJ/brief.md
+generated_by: real
+status: RECONCILED
+auto:
+  factual_precision: 5.0
+  completeness: 5.0
+expert:
+  materiality_judgment: 4.0
+  clarity: 4.0
+  notes: ''
+self_grade: 5.0
+expert_grade: 4.5

@@ -1,0 +1,1746 @@
+- item_id: 0047af1c8024
+  ticker: NVDA
+  error_class: wrong_value
+  target_claim_id: c11
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted scaled by +1.05x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 00cf8f16777f
+  ticker: JNJ
+  error_class: wrong_period
+  target_claim_id: c3
+  target_concept: null
+  species: null
+  detail: gross_profit period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 0198bd29fbd6
+  ticker: JNJ
+  error_class: wrong_value
+  target_claim_id: c7
+  target_concept: null
+  species: null
+  detail: eps_diluted scaled by +0.90x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 04753672ff8b
+  ticker: COST
+  error_class: wrong_value
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: net_income scaled by +0.90x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 05e568179fe2
+  ticker: COST
+  error_class: wrong_value
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: operating_income scaled by +1.05x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 07e177031fc1
+  ticker: COST
+  error_class: wrong_tag
+  target_claim_id: c8
+  target_concept: null
+  species: null
+  detail: eps_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 08b87f6a284c
+  ticker: COST
+  error_class: wrong_tag
+  target_claim_id: c7
+  target_concept: null
+  species: null
+  detail: eps_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 0a1fc27ea7d6
+  ticker: COST
+  error_class: wrong_value
+  target_claim_id: c7
+  target_concept: null
+  species: null
+  detail: eps_diluted scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 0beff0f20238
+  ticker: NVDA
+  error_class: omission
+  target_claim_id: null
+  target_concept: net_income
+  species: null
+  detail: all net_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 0d06545328c0
+  ticker: KO
+  error_class: wrong_period
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 0d08559dd89a
+  ticker: COST
+  error_class: omission
+  target_claim_id: null
+  target_concept: net_income
+  species: null
+  detail: all net_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 0d2e8434b5bf
+  ticker: JNJ
+  error_class: omission
+  target_claim_id: null
+  target_concept: gross_profit
+  species: null
+  detail: all gross_profit claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 0d370f3a7b69
+  ticker: AAPL
+  error_class: omission
+  target_claim_id: null
+  target_concept: gross_profit
+  species: null
+  detail: all gross_profit claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 0dfc9708b904
+  ticker: NVDA
+  error_class: fabrication
+  target_claim_id: qx-no_citation
+  target_concept: null
+  species: no_citation
+  detail: appended unsupported qualitative claim (no_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 0e6a7c364a30
+  ticker: AAPL
+  error_class: wrong_tag
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: cash_and_equivalents re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 0e7e1af80b06
+  ticker: AAPL
+  error_class: wrong_value
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: stockholders_equity scaled by +1.05x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 0fd158b6b1af
+  ticker: KO
+  error_class: wrong_value
+  target_claim_id: c8
+  target_concept: null
+  species: null
+  detail: operating_cash_flow scaled by +0.90x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 10d062da979e
+  ticker: MSFT
+  error_class: wrong_period
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 129538c5428e
+  ticker: NVDA
+  error_class: wrong_tag
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: eps_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 17421fe381bd
+  ticker: NVDA
+  error_class: wrong_tag
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: operating_income re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 17c086874b62
+  ticker: KO
+  error_class: wrong_period
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: cash_and_equivalents period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 180c0794c713
+  ticker: COST
+  error_class: fabrication
+  target_claim_id: qx-overreach_causal
+  target_concept: null
+  species: overreach_causal
+  detail: appended unsupported qualitative claim (overreach_causal)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 180cc9aa798b
+  ticker: COST
+  error_class: clean
+  target_claim_id: null
+  target_concept: null
+  species: null
+  detail: unmodified reconciled brief
+  expected_surface: none
+  judge_needed: true
+- item_id: 1a9e446989d2
+  ticker: NVDA
+  error_class: wrong_tag
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: operating_cash_flow re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 1b4c0447eaf9
+  ticker: CVX
+  error_class: wrong_value
+  target_claim_id: c7
+  target_concept: null
+  species: null
+  detail: cost_of_revenue scaled by +1.05x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 1fdf3297c875
+  ticker: NVDA
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_cash_flow
+  species: null
+  detail: all operating_cash_flow claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 20195d86c68e
+  ticker: JNJ
+  error_class: omission
+  target_claim_id: null
+  target_concept: net_income
+  species: null
+  detail: all net_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 20912b9659ef
+  ticker: NVDA
+  error_class: wrong_value
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: operating_cash_flow scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 20ec2c2bea0e
+  ticker: JNJ
+  error_class: omission
+  target_claim_id: null
+  target_concept: revenue
+  species: null
+  detail: all revenue claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 21fd3928e448
+  ticker: JNJ
+  error_class: fabrication
+  target_claim_id: qx-phantom_citation
+  target_concept: null
+  species: phantom_citation
+  detail: appended unsupported qualitative claim (phantom_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 235cc2820d9d
+  ticker: JNJ
+  error_class: wrong_value
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: cash_and_equivalents scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 25752da4c3fe
+  ticker: KO
+  error_class: wrong_value
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted scaled by +1.05x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 278c402b35dc
+  ticker: MSFT
+  error_class: fabrication
+  target_claim_id: qx-overreach_causal
+  target_concept: null
+  species: overreach_causal
+  detail: appended unsupported qualitative claim (overreach_causal)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 2917559d12d5
+  ticker: KO
+  error_class: fabrication
+  target_claim_id: qx-phantom_citation
+  target_concept: null
+  species: phantom_citation
+  detail: appended unsupported qualitative claim (phantom_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 2919c359f69c
+  ticker: AAPL
+  error_class: wrong_period
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: stockholders_equity period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 2939cc523de8
+  ticker: CVX
+  error_class: omission
+  target_claim_id: null
+  target_concept: net_income
+  species: null
+  detail: all net_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 298591f421e3
+  ticker: COST
+  error_class: wrong_tag
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: net_income re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 2a4ad501e183
+  ticker: CAT
+  error_class: wrong_value
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 2e550be6873f
+  ticker: COST
+  error_class: fabrication
+  target_claim_id: qx-overreach_superlative
+  target_concept: null
+  species: overreach_superlative
+  detail: appended unsupported qualitative claim (overreach_superlative)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 2eb78e1c04d8
+  ticker: NVDA
+  error_class: wrong_period
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: operating_income period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 2ee0ceb7a0cf
+  ticker: KO
+  error_class: wrong_period
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 301780bbd875
+  ticker: MSFT
+  error_class: fabrication
+  target_claim_id: qx-overreach_superlative
+  target_concept: null
+  species: overreach_superlative
+  detail: appended unsupported qualitative claim (overreach_superlative)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 32d93739e0f9
+  ticker: KO
+  error_class: wrong_tag
+  target_claim_id: c8
+  target_concept: null
+  species: null
+  detail: operating_cash_flow re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 36765a12e0c1
+  ticker: JNJ
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_cash_flow
+  species: null
+  detail: all operating_cash_flow claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 3759337c12eb
+  ticker: AAPL
+  error_class: wrong_period
+  target_claim_id: c3
+  target_concept: null
+  species: null
+  detail: eps_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 379ce769a82a
+  ticker: CVX
+  error_class: fabrication
+  target_claim_id: qx-no_citation
+  target_concept: null
+  species: no_citation
+  detail: appended unsupported qualitative claim (no_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 37ee2857fd07
+  ticker: COST
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_income
+  species: null
+  detail: all operating_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 3930a9bad46a
+  ticker: JNJ
+  error_class: wrong_tag
+  target_claim_id: c7
+  target_concept: null
+  species: null
+  detail: eps_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 3933f3c93d07
+  ticker: CVX
+  error_class: wrong_value
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: net_income scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 39680d626d2c
+  ticker: COST
+  error_class: wrong_tag
+  target_claim_id: c2
+  target_concept: null
+  species: null
+  detail: revenue re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 3afcd6ada9ef
+  ticker: KO
+  error_class: wrong_value
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 3b1356620f7b
+  ticker: NVDA
+  error_class: wrong_value
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: operating_income scaled by +1.05x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 3c9d9fe1b290
+  ticker: COST
+  error_class: wrong_period
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: operating_income period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 3cea9fd9e294
+  ticker: JNJ
+  error_class: wrong_value
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: cost_of_revenue scaled by +1.05x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 3eb2050f444a
+  ticker: MSFT
+  error_class: fabrication
+  target_claim_id: qx-phantom_citation
+  target_concept: null
+  species: phantom_citation
+  detail: appended unsupported qualitative claim (phantom_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 421278caf4b5
+  ticker: KO
+  error_class: wrong_value
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: cash_and_equivalents scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 43700ed0630f
+  ticker: CAT
+  error_class: fabrication
+  target_claim_id: qx-overreach_superlative
+  target_concept: null
+  species: overreach_superlative
+  detail: appended unsupported qualitative claim (overreach_superlative)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 45a4f31de635
+  ticker: CVX
+  error_class: omission
+  target_claim_id: null
+  target_concept: eps_diluted
+  species: null
+  detail: all eps_diluted claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 4635e7a4e65e
+  ticker: AAPL
+  error_class: clean
+  target_claim_id: null
+  target_concept: null
+  species: null
+  detail: unmodified reconciled brief
+  expected_surface: none
+  judge_needed: true
+- item_id: 4786fa0bdbea
+  ticker: CAT
+  error_class: fabrication
+  target_claim_id: qx-phantom_citation
+  target_concept: null
+  species: phantom_citation
+  detail: appended unsupported qualitative claim (phantom_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 48992f8ef4f2
+  ticker: AAPL
+  error_class: wrong_tag
+  target_claim_id: c3
+  target_concept: null
+  species: null
+  detail: eps_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 489c5bc078b6
+  ticker: NVDA
+  error_class: wrong_tag
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: assets re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 49fc321cf3cb
+  ticker: COST
+  error_class: wrong_period
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: operating_income period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 4cf4a22d5cc4
+  ticker: NVDA
+  error_class: wrong_period
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: assets period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 4da1aca2b955
+  ticker: JNJ
+  error_class: wrong_tag
+  target_claim_id: c3
+  target_concept: null
+  species: null
+  detail: gross_profit re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 4ec8cb3d9030
+  ticker: NVDA
+  error_class: omission
+  target_claim_id: null
+  target_concept: gross_profit
+  species: null
+  detail: all gross_profit claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 50c447b0f21e
+  ticker: CAT
+  error_class: wrong_tag
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 517e6f71d027
+  ticker: AAPL
+  error_class: wrong_tag
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 569cae3a3776
+  ticker: NVDA
+  error_class: wrong_period
+  target_claim_id: c8
+  target_concept: null
+  species: null
+  detail: rd_expense period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 56cee41aec9f
+  ticker: CVX
+  error_class: wrong_period
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: net_income period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 590f622ce0d3
+  ticker: KO
+  error_class: wrong_tag
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: cash_and_equivalents re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 593934e20f0d
+  ticker: JNJ
+  error_class: fabrication
+  target_claim_id: qx-overreach_causal
+  target_concept: null
+  species: overreach_causal
+  detail: appended unsupported qualitative claim (overreach_causal)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 599bad625876
+  ticker: NVDA
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_income
+  species: null
+  detail: all operating_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 59becceb998e
+  ticker: CVX
+  error_class: clean
+  target_claim_id: null
+  target_concept: null
+  species: null
+  detail: unmodified reconciled brief
+  expected_surface: none
+  judge_needed: true
+- item_id: 60584a79d722
+  ticker: NVDA
+  error_class: wrong_value
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: assets scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 60fdfd6da675
+  ticker: JNJ
+  error_class: wrong_period
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: cash_and_equivalents period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 61bb90e3c922
+  ticker: NVDA
+  error_class: fabrication
+  target_claim_id: qx-phantom_citation
+  target_concept: null
+  species: phantom_citation
+  detail: appended unsupported qualitative claim (phantom_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 622dc802204c
+  ticker: CAT
+  error_class: wrong_value
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 646977701b9e
+  ticker: NVDA
+  error_class: fabrication
+  target_claim_id: qx-overreach_causal
+  target_concept: null
+  species: overreach_causal
+  detail: appended unsupported qualitative claim (overreach_causal)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 671b9316d660
+  ticker: MSFT
+  error_class: wrong_tag
+  target_claim_id: c3
+  target_concept: null
+  species: null
+  detail: eps_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 6964e097dc35
+  ticker: CVX
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_cash_flow
+  species: null
+  detail: all operating_cash_flow claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 6b036e904d81
+  ticker: MSFT
+  error_class: omission
+  target_claim_id: null
+  target_concept: net_income
+  species: null
+  detail: all net_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 70c73855434d
+  ticker: CVX
+  error_class: wrong_tag
+  target_claim_id: c7
+  target_concept: null
+  species: null
+  detail: cost_of_revenue re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 72db538be0b8
+  ticker: KO
+  error_class: wrong_period
+  target_claim_id: c8
+  target_concept: null
+  species: null
+  detail: operating_cash_flow period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 73b2228f78b9
+  ticker: CAT
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_income
+  species: null
+  detail: all operating_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 746a9c2371f5
+  ticker: MSFT
+  error_class: wrong_value
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 7769305c5c46
+  ticker: AAPL
+  error_class: wrong_value
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: cash_and_equivalents scaled by +0.90x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 776931b34e40
+  ticker: KO
+  error_class: wrong_tag
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: eps_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 77d0d70d6be3
+  ticker: JNJ
+  error_class: wrong_period
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: cost_of_revenue period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 7870b3120d39
+  ticker: MSFT
+  error_class: wrong_period
+  target_claim_id: c3
+  target_concept: null
+  species: null
+  detail: eps_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 7b69ca19f35b
+  ticker: KO
+  error_class: omission
+  target_claim_id: null
+  target_concept: revenue
+  species: null
+  detail: all revenue claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 7cc67c199763
+  ticker: NVDA
+  error_class: wrong_value
+  target_claim_id: c8
+  target_concept: null
+  species: null
+  detail: rd_expense scaled by +0.90x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 7e1e0ad66126
+  ticker: MSFT
+  error_class: wrong_tag
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 7ebffaa1cfe7
+  ticker: NVDA
+  error_class: omission
+  target_claim_id: null
+  target_concept: revenue
+  species: null
+  detail: all revenue claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 802e95e88bb5
+  ticker: JNJ
+  error_class: fabrication
+  target_claim_id: qx-overreach_superlative
+  target_concept: null
+  species: overreach_superlative
+  detail: appended unsupported qualitative claim (overreach_superlative)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 829cde54cba1
+  ticker: MSFT
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_cash_flow
+  species: null
+  detail: all operating_cash_flow claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 83d28f14ef2c
+  ticker: JNJ
+  error_class: fabrication
+  target_claim_id: qx-no_citation
+  target_concept: null
+  species: no_citation
+  detail: appended unsupported qualitative claim (no_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 84ef6df6b137
+  ticker: COST
+  error_class: wrong_tag
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: operating_income re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 87062ab9561e
+  ticker: AAPL
+  error_class: fabrication
+  target_claim_id: qx-phantom_citation
+  target_concept: null
+  species: phantom_citation
+  detail: appended unsupported qualitative claim (phantom_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 882e507cb06e
+  ticker: JNJ
+  error_class: clean
+  target_claim_id: null
+  target_concept: null
+  species: null
+  detail: unmodified reconciled brief
+  expected_surface: none
+  judge_needed: true
+- item_id: 887f0d52e938
+  ticker: KO
+  error_class: omission
+  target_claim_id: null
+  target_concept: net_income
+  species: null
+  detail: all net_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 889d137ba67d
+  ticker: CVX
+  error_class: wrong_tag
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: net_income re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 8952fb09129c
+  ticker: AAPL
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_income
+  species: null
+  detail: all operating_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 89ab8f171ccc
+  ticker: AAPL
+  error_class: wrong_period
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: cash_and_equivalents period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 8e3cea8b585c
+  ticker: COST
+  error_class: wrong_tag
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: net_income re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 8ee90088d103
+  ticker: AAPL
+  error_class: wrong_value
+  target_claim_id: c3
+  target_concept: null
+  species: null
+  detail: eps_diluted scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 8f13266039f2
+  ticker: NVDA
+  error_class: wrong_period
+  target_claim_id: c11
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 8f346f6c880c
+  ticker: AAPL
+  error_class: fabrication
+  target_claim_id: qx-overreach_causal
+  target_concept: null
+  species: overreach_causal
+  detail: appended unsupported qualitative claim (overreach_causal)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: 8fcd0b8b3e0c
+  ticker: KO
+  error_class: wrong_tag
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: 952d342e2552
+  ticker: AAPL
+  error_class: omission
+  target_claim_id: null
+  target_concept: net_income
+  species: null
+  detail: all net_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 95b96132a2ad
+  ticker: COST
+  error_class: wrong_value
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: operating_income scaled by +0.90x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 9947ec9b0788
+  ticker: COST
+  error_class: wrong_value
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: 997c37ee49e1
+  ticker: CVX
+  error_class: omission
+  target_claim_id: null
+  target_concept: revenue
+  species: null
+  detail: all revenue claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 9c98e987f72c
+  ticker: COST
+  error_class: omission
+  target_claim_id: null
+  target_concept: eps_diluted
+  species: null
+  detail: all eps_diluted claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: 9cff5a4140c2
+  ticker: NVDA
+  error_class: wrong_period
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: operating_cash_flow period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: 9de38563abc4
+  ticker: MSFT
+  error_class: clean
+  target_claim_id: null
+  target_concept: null
+  species: null
+  detail: unmodified reconciled brief
+  expected_surface: none
+  judge_needed: true
+- item_id: 9dfa486d0d23
+  ticker: COST
+  error_class: wrong_period
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: a150ef8fb6fc
+  ticker: JNJ
+  error_class: wrong_period
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: a197b9c09d8b
+  ticker: CVX
+  error_class: wrong_tag
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: a2b91c9ea688
+  ticker: COST
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_cash_flow
+  species: null
+  detail: all operating_cash_flow claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: a3107d00b734
+  ticker: JNJ
+  error_class: wrong_tag
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: cash_and_equivalents re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: a4fdac1f9b7c
+  ticker: KO
+  error_class: omission
+  target_claim_id: null
+  target_concept: eps_diluted
+  species: null
+  detail: all eps_diluted claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: a5c68af6b463
+  ticker: KO
+  error_class: clean
+  target_claim_id: null
+  target_concept: null
+  species: null
+  detail: unmodified reconciled brief
+  expected_surface: none
+  judge_needed: true
+- item_id: a6eca91dc3f2
+  ticker: COST
+  error_class: wrong_value
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: net_income scaled by +1.05x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: a6ece489f6c7
+  ticker: COST
+  error_class: wrong_period
+  target_claim_id: c2
+  target_concept: null
+  species: null
+  detail: revenue period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: a832be1d4b06
+  ticker: KO
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_income
+  species: null
+  detail: all operating_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: ae8538b445f3
+  ticker: CVX
+  error_class: wrong_period
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: ae9efcbe0697
+  ticker: KO
+  error_class: wrong_period
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: eps_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: b10bf6a865e4
+  ticker: CAT
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_cash_flow
+  species: null
+  detail: all operating_cash_flow claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: b15d5741ae46
+  ticker: JNJ
+  error_class: wrong_value
+  target_claim_id: c3
+  target_concept: null
+  species: null
+  detail: gross_profit scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: b31c6331b8bf
+  ticker: NVDA
+  error_class: omission
+  target_claim_id: null
+  target_concept: eps_diluted
+  species: null
+  detail: all eps_diluted claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: b415a2204c61
+  ticker: MSFT
+  error_class: omission
+  target_claim_id: null
+  target_concept: eps_diluted
+  species: null
+  detail: all eps_diluted claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: b561384c7886
+  ticker: JNJ
+  error_class: wrong_period
+  target_claim_id: c7
+  target_concept: null
+  species: null
+  detail: eps_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: b69941b46930
+  ticker: CVX
+  error_class: fabrication
+  target_claim_id: qx-overreach_causal
+  target_concept: null
+  species: overreach_causal
+  detail: appended unsupported qualitative claim (overreach_causal)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: b7ed720835a1
+  ticker: AAPL
+  error_class: omission
+  target_claim_id: null
+  target_concept: revenue
+  species: null
+  detail: all revenue claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: b86d84277715
+  ticker: NVDA
+  error_class: wrong_period
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: b873d5565107
+  ticker: COST
+  error_class: wrong_value
+  target_claim_id: c2
+  target_concept: null
+  species: null
+  detail: revenue scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: b9387c27c447
+  ticker: NVDA
+  error_class: clean
+  target_claim_id: null
+  target_concept: null
+  species: null
+  detail: unmodified reconciled brief
+  expected_surface: none
+  judge_needed: true
+- item_id: b97c46837fe2
+  ticker: AAPL
+  error_class: fabrication
+  target_claim_id: qx-overreach_superlative
+  target_concept: null
+  species: overreach_superlative
+  detail: appended unsupported qualitative claim (overreach_superlative)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: baa8a74b1648
+  ticker: NVDA
+  error_class: fabrication
+  target_claim_id: qx-overreach_superlative
+  target_concept: null
+  species: overreach_superlative
+  detail: appended unsupported qualitative claim (overreach_superlative)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: bad2d18cec9b
+  ticker: COST
+  error_class: wrong_period
+  target_claim_id: c8
+  target_concept: null
+  species: null
+  detail: eps_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: bd15dffc1ba1
+  ticker: CAT
+  error_class: wrong_tag
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: bd70f738fabd
+  ticker: AAPL
+  error_class: wrong_tag
+  target_claim_id: c9
+  target_concept: null
+  species: null
+  detail: stockholders_equity re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: be59a74d6b42
+  ticker: CAT
+  error_class: omission
+  target_claim_id: null
+  target_concept: revenue
+  species: null
+  detail: all revenue claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: c0b7de394f5f
+  ticker: CAT
+  error_class: omission
+  target_claim_id: null
+  target_concept: eps_diluted
+  species: null
+  detail: all eps_diluted claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: c1d7ba8fc745
+  ticker: COST
+  error_class: fabrication
+  target_claim_id: qx-no_citation
+  target_concept: null
+  species: no_citation
+  detail: appended unsupported qualitative claim (no_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: c3405a37268f
+  ticker: KO
+  error_class: fabrication
+  target_claim_id: qx-no_citation
+  target_concept: null
+  species: no_citation
+  detail: appended unsupported qualitative claim (no_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: c3b1e59f5ef2
+  ticker: JNJ
+  error_class: wrong_tag
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: cost_of_revenue re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: c621cf859a4b
+  ticker: JNJ
+  error_class: wrong_period
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: assets period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: c78243ce63e3
+  ticker: AAPL
+  error_class: omission
+  target_claim_id: null
+  target_concept: eps_diluted
+  species: null
+  detail: all eps_diluted claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: c8533d07859a
+  ticker: COST
+  error_class: wrong_period
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: net_income period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: cda477b80481
+  ticker: NVDA
+  error_class: wrong_period
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: eps_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: ce28d5a0bd7a
+  ticker: NVDA
+  error_class: wrong_value
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: ce475ba5415a
+  ticker: AAPL
+  error_class: wrong_value
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: ce52593142c1
+  ticker: NVDA
+  error_class: wrong_value
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: eps_diluted scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: cfdea04323e0
+  ticker: KO
+  error_class: fabrication
+  target_claim_id: qx-overreach_superlative
+  target_concept: null
+  species: overreach_superlative
+  detail: appended unsupported qualitative claim (overreach_superlative)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: d006b5f3ddc2
+  ticker: KO
+  error_class: wrong_tag
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: d1c9edd422d4
+  ticker: COST
+  error_class: wrong_period
+  target_claim_id: c7
+  target_concept: null
+  species: null
+  detail: eps_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: d1eeb81bcb1c
+  ticker: CVX
+  error_class: fabrication
+  target_claim_id: qx-phantom_citation
+  target_concept: null
+  species: phantom_citation
+  detail: appended unsupported qualitative claim (phantom_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: d29869d8e30f
+  ticker: COST
+  error_class: wrong_tag
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: d501d933c2ea
+  ticker: KO
+  error_class: fabrication
+  target_claim_id: qx-overreach_causal
+  target_concept: null
+  species: overreach_causal
+  detail: appended unsupported qualitative claim (overreach_causal)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: dc3284939137
+  ticker: COST
+  error_class: wrong_value
+  target_claim_id: c8
+  target_concept: null
+  species: null
+  detail: eps_diluted scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: dea845cf5ba8
+  ticker: COST
+  error_class: omission
+  target_claim_id: null
+  target_concept: revenue
+  species: null
+  detail: all revenue claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: debcceb8ff68
+  ticker: CVX
+  error_class: wrong_period
+  target_claim_id: c7
+  target_concept: null
+  species: null
+  detail: cost_of_revenue period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: dec9238d987f
+  ticker: NVDA
+  error_class: wrong_tag
+  target_claim_id: c11
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: e20e10a26d27
+  ticker: JNJ
+  error_class: wrong_tag
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: assets re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: e2e52ec449f6
+  ticker: NVDA
+  error_class: wrong_tag
+  target_claim_id: c8
+  target_concept: null
+  species: null
+  detail: rd_expense re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: e3102ae1baf2
+  ticker: KO
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_cash_flow
+  species: null
+  detail: all operating_cash_flow claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: e3ba3b74198d
+  ticker: COST
+  error_class: wrong_tag
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: operating_income re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: e49527c8b0f1
+  ticker: MSFT
+  error_class: fabrication
+  target_claim_id: qx-no_citation
+  target_concept: null
+  species: no_citation
+  detail: appended unsupported qualitative claim (no_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: e53a5b37bf90
+  ticker: MSFT
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_income
+  species: null
+  detail: all operating_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: e60f0c0e1672
+  ticker: CAT
+  error_class: wrong_period
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: e6aec34a3de5
+  ticker: COST
+  error_class: fabrication
+  target_claim_id: qx-phantom_citation
+  target_concept: null
+  species: phantom_citation
+  detail: appended unsupported qualitative claim (phantom_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: e9d250ab01f5
+  ticker: AAPL
+  error_class: omission
+  target_claim_id: null
+  target_concept: operating_cash_flow
+  species: null
+  detail: all operating_cash_flow claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: eafba9305be5
+  ticker: CAT
+  error_class: fabrication
+  target_claim_id: qx-no_citation
+  target_concept: null
+  species: no_citation
+  detail: appended unsupported qualitative claim (no_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: ee56a4a238fc
+  ticker: AAPL
+  error_class: fabrication
+  target_claim_id: qx-no_citation
+  target_concept: null
+  species: no_citation
+  detail: appended unsupported qualitative claim (no_citation)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: eefc528dfeea
+  ticker: MSFT
+  error_class: wrong_value
+  target_claim_id: c3
+  target_concept: null
+  species: null
+  detail: eps_diluted scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: ef7532fa39cd
+  ticker: JNJ
+  error_class: wrong_value
+  target_claim_id: c10
+  target_concept: null
+  species: null
+  detail: assets scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: ef96c9e34c99
+  ticker: JNJ
+  error_class: wrong_tag
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: f171b94a0305
+  ticker: CAT
+  error_class: omission
+  target_claim_id: null
+  target_concept: net_income
+  species: null
+  detail: all net_income claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: f17a78af5aee
+  ticker: MSFT
+  error_class: omission
+  target_claim_id: null
+  target_concept: gross_profit
+  species: null
+  detail: all gross_profit claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: f2f1c1c2e853
+  ticker: MSFT
+  error_class: omission
+  target_claim_id: null
+  target_concept: revenue
+  species: null
+  detail: all revenue claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: f2f8fe60ffce
+  ticker: KO
+  error_class: wrong_value
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: eps_diluted scaled by +0.98x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: f30cdb7da1ec
+  ticker: NVDA
+  error_class: wrong_tag
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue re-cited under the wrong us-gaap tag
+  expected_surface: verifier:wrong_tag
+  judge_needed: false
+- item_id: f340546f3775
+  ticker: CAT
+  error_class: wrong_period
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: f3407cdf404a
+  ticker: KO
+  error_class: omission
+  target_claim_id: null
+  target_concept: gross_profit
+  species: null
+  detail: all gross_profit claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: f485175b9cc2
+  ticker: JNJ
+  error_class: omission
+  target_claim_id: null
+  target_concept: eps_diluted
+  species: null
+  detail: all eps_diluted claims + their narrative sentences removed
+  expected_surface: none_by_design
+  judge_needed: true
+- item_id: f55ec9346952
+  ticker: JNJ
+  error_class: wrong_value
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false
+- item_id: f57d4e54ab3d
+  ticker: CAT
+  error_class: fabrication
+  target_claim_id: qx-overreach_causal
+  target_concept: null
+  species: overreach_causal
+  detail: appended unsupported qualitative claim (overreach_causal)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: f688ff40e0ed
+  ticker: AAPL
+  error_class: wrong_period
+  target_claim_id: c4
+  target_concept: null
+  species: null
+  detail: shares_outstanding_diluted period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: f785c0b0515f
+  ticker: CAT
+  error_class: clean
+  target_claim_id: null
+  target_concept: null
+  species: null
+  detail: unmodified reconciled brief
+  expected_surface: none
+  judge_needed: true
+- item_id: fb56da9ade86
+  ticker: COST
+  error_class: wrong_period
+  target_claim_id: c5
+  target_concept: null
+  species: null
+  detail: net_income period shifted one year back
+  expected_surface: verifier:wrong_period
+  judge_needed: false
+- item_id: fb924bc1ea65
+  ticker: CVX
+  error_class: fabrication
+  target_claim_id: qx-overreach_superlative
+  target_concept: null
+  species: overreach_superlative
+  detail: appended unsupported qualitative claim (overreach_superlative)
+  expected_surface: judge:unsupported
+  judge_needed: true
+- item_id: fc6a71f4e009
+  ticker: CVX
+  error_class: wrong_value
+  target_claim_id: c1
+  target_concept: null
+  species: null
+  detail: revenue scaled by +1.01x (claim + narrative token)
+  expected_surface: verifier:value_mismatch
+  judge_needed: false

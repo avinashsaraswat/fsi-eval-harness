@@ -1,0 +1,358 @@
+item_id: a2b91c9ea688
+ticker: COST
+accession: 0000909832-26-000051
+form: 10-Q
+report_date: '2026-05-10'
+brief:
+  ticker: COST
+  narrative: 'Costco delivered a solid fiscal Q3, with net sales rising to $70.53B from $63.21B a year
+    earlier, an 11.6% year-over-year increase that underscores continued membership-driven traffic and
+    share gains. Net income advanced to $2.19B from $1.90B, up 15.2%, translating into diluted EPS of
+    $4.93 versus $4.28, a 15.2% gain. Notably, the earnings growth outpaced revenue growth, a signal of
+    modest operating leverage in a business known for thin, deliberately compressed merchandise margins.
+
+
+    Operating income expanded to $2.82B from $2.53B, up 11.3%, roughly in line with the top-line trajectory.
+    Cost of revenue climbed to $61.52B from $55.00B, keeping gross profit (revenue less cost of goods)
+    at $9.01B for the quarter versus $8.21B a year ago. The gross margin held at approximately 12.8%,
+    consistent with Costco''s model of returning scale benefits to members rather than expanding merchandise
+    spreads.
+
+
+    The cash-generation story remains a highlight: nine-month operating cash flow reached $11.13B, up
+    17.6% from $9.47B in the prior-year period. That funded a cash and equivalents balance of $18.95B,
+    up from $13.84B. Stockholders'' equity grew to $33.51B from $27.13B, and total assets rose to $86.43B
+    from $75.48B, reflecting a strengthening balance sheet.
+
+
+    Diluted weighted-average shares were essentially flat at 444.43M versus 444.76M, indicating that per-share
+    growth was driven by earnings rather than buybacks this quarter. The combination of double-digit sales
+    and profit growth, stable margins, and expanding cash flow points to a franchise executing consistently.
+
+
+    Why it matters: Costco''s ability to grow net income (up 15.2%) faster than revenue (up 11.6%) while
+    holding gross margin steady suggests operating discipline and warehouse-level efficiency. Investors
+    focused on the durability of the membership model will find the 17.6% jump in nine-month operating
+    cash flow the most telling data point, as it reflects both volume growth and favorable working-capital
+    dynamics.'
+  claims:
+  - id: c1
+    kind: numeric
+    text: Costco delivered a solid fiscal Q3, with net sales rising to $70.53B from $63.21B a year earlier,
+      an 11.6% year-over-year increase that underscores continued membership-driven traffic and share
+      gains.
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2026-02-16'
+      end: '2026-05-10'
+      fiscal_label: Q3 FY2026
+    unit: USD
+    value: 70527000000.0
+    basis: reported
+    source_fact_ids:
+    - f1
+    derivation: null
+  - id: c2
+    kind: numeric
+    text: Costco delivered a solid fiscal Q3, with net sales rising to $70.53B from $63.21B a year earlier,
+      an 11.6% year-over-year increase.
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2025-02-17'
+      end: '2025-05-11'
+      fiscal_label: Q3 FY2025
+    unit: USD
+    value: 63205000000.0
+    basis: reported
+    source_fact_ids:
+    - f2
+    derivation: null
+  - id: c3
+    kind: numeric
+    text: An 11.6% year-over-year increase in net sales.
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2026-02-16'
+      end: '2026-05-10'
+      fiscal_label: Q3 FY2026 vs Q3 FY2025
+    unit: pct
+    value: 11.58
+    basis: derived
+    source_fact_ids:
+    - f1
+    - f2
+    derivation: (f1 - f2) / f2 * 100
+  - id: c4
+    kind: numeric
+    text: Net income advanced to $2.19B from $1.90B, up 15.2%.
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2026-02-16'
+      end: '2026-05-10'
+      fiscal_label: Q3 FY2026
+    unit: USD
+    value: 2192000000.0
+    basis: reported
+    source_fact_ids:
+    - f3
+    derivation: null
+  - id: c5
+    kind: numeric
+    text: Net income advanced to $2.19B from $1.90B, up 15.2%.
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2025-02-17'
+      end: '2025-05-11'
+      fiscal_label: Q3 FY2025
+    unit: USD
+    value: 1903000000.0
+    basis: reported
+    source_fact_ids:
+    - f4
+    derivation: null
+  - id: c6
+    kind: numeric
+    text: Net income up 15.2%.
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2026-02-16'
+      end: '2026-05-10'
+      fiscal_label: Q3 FY2026 vs Q3 FY2025
+    unit: pct
+    value: 15.19
+    basis: derived
+    source_fact_ids:
+    - f3
+    - f4
+    derivation: (f3 - f4) / f4 * 100
+  - id: c7
+    kind: numeric
+    text: Translating into diluted EPS of $4.93 versus $4.28, a 15.2% gain.
+    concept: eps_diluted
+    gaap_tag: EarningsPerShareDiluted
+    period:
+      type: duration
+      start: '2026-02-16'
+      end: '2026-05-10'
+      fiscal_label: Q3 FY2026
+    unit: USD/share
+    value: 4.93
+    basis: reported
+    source_fact_ids:
+    - f5
+    derivation: null
+  - id: c8
+    kind: numeric
+    text: Diluted EPS of $4.93 versus $4.28.
+    concept: eps_diluted
+    gaap_tag: EarningsPerShareDiluted
+    period:
+      type: duration
+      start: '2025-02-17'
+      end: '2025-05-11'
+      fiscal_label: Q3 FY2025
+    unit: USD/share
+    value: 4.28
+    basis: reported
+    source_fact_ids:
+    - f6
+    derivation: null
+  - id: c9
+    kind: numeric
+    text: Operating income expanded to $2.82B from $2.53B, up 11.3%.
+    concept: operating_income
+    gaap_tag: OperatingIncomeLoss
+    period:
+      type: duration
+      start: '2026-02-16'
+      end: '2026-05-10'
+      fiscal_label: Q3 FY2026
+    unit: USD
+    value: 2815000000.0
+    basis: reported
+    source_fact_ids:
+    - f7
+    derivation: null
+  - id: c10
+    kind: numeric
+    text: Operating income expanded to $2.82B from $2.53B, up 11.3%.
+    concept: operating_income
+    gaap_tag: OperatingIncomeLoss
+    period:
+      type: duration
+      start: '2025-02-17'
+      end: '2025-05-11'
+      fiscal_label: Q3 FY2025
+    unit: USD
+    value: 2530000000.0
+    basis: reported
+    source_fact_ids:
+    - f8
+    derivation: null
+  - id: c14
+    kind: numeric
+    text: That funded a cash and equivalents balance of $18.95B, up from $13.84B.
+    concept: cash_and_equivalents
+    gaap_tag: CashAndCashEquivalentsAtCarryingValue
+    period:
+      type: instant
+      start: null
+      end: '2026-05-10'
+      fiscal_label: as of 2026-05-10
+    unit: USD
+    value: 18946000000.0
+    basis: reported
+    source_fact_ids:
+    - f15
+    derivation: null
+  - id: c15
+    kind: numeric
+    text: Cash and equivalents balance of $18.95B, up from $13.84B.
+    concept: cash_and_equivalents
+    gaap_tag: CashAndCashEquivalentsAtCarryingValue
+    period:
+      type: instant
+      start: null
+      end: '2025-05-11'
+      fiscal_label: as of 2025-05-11
+    unit: USD
+    value: 13836000000.0
+    basis: reported
+    source_fact_ids:
+    - f16
+    derivation: null
+  - id: c16
+    kind: numeric
+    text: Stockholders' equity grew to $33.51B from $27.13B.
+    concept: stockholders_equity
+    gaap_tag: StockholdersEquity
+    period:
+      type: instant
+      start: null
+      end: '2026-05-10'
+      fiscal_label: as of 2026-05-10
+    unit: USD
+    value: 33509000000.0
+    basis: reported
+    source_fact_ids:
+    - f13
+    derivation: null
+  - id: c17
+    kind: numeric
+    text: Total assets rose to $86.43B from $75.48B.
+    concept: assets
+    gaap_tag: Assets
+    period:
+      type: instant
+      start: null
+      end: '2026-05-10'
+      fiscal_label: as of 2026-05-10
+    unit: USD
+    value: 86430000000.0
+    basis: reported
+    source_fact_ids:
+    - f11
+    derivation: null
+  - id: c18
+    kind: numeric
+    text: Cost of revenue climbed to $61.52B from $55.00B.
+    concept: cost_of_revenue
+    gaap_tag: CostOfGoodsAndServicesSold
+    period:
+      type: duration
+      start: '2026-02-16'
+      end: '2026-05-10'
+      fiscal_label: Q3 FY2026
+    unit: USD
+    value: 61519000000.0
+    basis: reported
+    source_fact_ids:
+    - f17
+    derivation: null
+  - id: c19
+    kind: numeric
+    text: Gross margin held at approximately 12.8%.
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2026-02-16'
+      end: '2026-05-10'
+      fiscal_label: Q3 FY2026
+    unit: pct
+    value: 12.77
+    basis: derived
+    source_fact_ids:
+    - f1
+    - f17
+    derivation: (f1 - f17) / f1 * 100
+  - id: c20
+    kind: numeric
+    text: Diluted weighted-average shares were essentially flat at 444.43M versus 444.76M.
+    concept: shares_outstanding_diluted
+    gaap_tag: WeightedAverageNumberOfDilutedSharesOutstanding
+    period:
+      type: duration
+      start: '2026-02-16'
+      end: '2026-05-10'
+      fiscal_label: Q3 FY2026
+    unit: shares
+    value: 444430000.0
+    basis: reported
+    source_fact_ids:
+    - f19
+    derivation: null
+  - id: c21
+    kind: numeric
+    text: Diluted weighted-average shares versus 444.76M.
+    concept: shares_outstanding_diluted
+    gaap_tag: WeightedAverageNumberOfDilutedSharesOutstanding
+    period:
+      type: duration
+      start: '2025-02-17'
+      end: '2025-05-11'
+      fiscal_label: Q3 FY2025
+    unit: shares
+    value: 444762000.0
+    basis: reported
+    source_fact_ids:
+    - f20
+    derivation: null
+  - id: c22
+    kind: qualitative
+    text: Costco's ability to grow net income (up 15.2%) faster than revenue (up 11.6%) while holding
+      gross margin steady suggests operating discipline and warehouse-level efficiency.
+    quality: why_it_matters
+    supporting_claim_ids:
+    - c3
+    - c6
+    - c19
+  - id: c23
+    kind: qualitative
+    text: The 17.6% jump in nine-month operating cash flow is the most telling data point, reflecting
+      both volume growth and favorable working-capital dynamics, and it funded a rising cash balance.
+    quality: materiality
+    supporting_claim_ids:
+    - c13
+    - c14
+  - id: c24
+    kind: qualitative
+    text: With flat diluted share count, per-share earnings growth was driven by earnings rather than
+      buybacks this quarter, signaling underlying operational strength rather than financial engineering.
+    quality: tone
+    supporting_claim_ids:
+    - c7
+    - c20
+    - c21

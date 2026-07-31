@@ -1,0 +1,228 @@
+item_id: e20e10a26d27
+ticker: JNJ
+accession: 0000200406-26-000087
+form: 10-Q
+report_date: '2026-03-29'
+brief:
+  ticker: JNJ
+  narrative: '**JNJ Q1 FY26: Top-line growth masks a sharp earnings reset.** Johnson & Johnson posted
+    first-quarter revenue of $24.06B for the period ended March 29, 2026, up 9.9% from $21.89B a year
+    earlier, a solid demonstration of durable commercial momentum across its franchises. Gross profit
+    expanded to $15.96B from $14.54B, keeping gross margin healthy at 66.3% (versus 66.4% in the prior-year
+    quarter) as cost of revenue rose to $8.11B from $7.36B — essentially flat margin discipline despite
+    input pressures.
+
+
+    The headline disappointment is on the bottom line. Net income fell 52.4% to $5.24B from $10.999B,
+    and diluted EPS collapsed to $2.14 from $4.54. The prior-year comparison was inflated by unusual items
+    below the operating line; the sequential-year drop is therefore optically severe and warrants scrutiny
+    of one-time charges rather than reading it as a core deterioration, given the healthy revenue and
+    gross-profit trajectory.
+
+
+    Cash generation also softened materially: operating cash flow was $2.51B, down 39.8% from $4.17B,
+    and cash and equivalents fell to $21.69B from $38.47B a year ago — a $16.79B decline consistent with
+    deal activity, buybacks, and working-capital deployment. Total assets grew to $200.89B from $193.67B,
+    while stockholders'' equity edged up to $81.19B from $78.11B, keeping the balance sheet well-capitalized.
+    Diluted share count ticked up to 2,445.2M from 2,423.8M.
+
+
+    **Why it matters:** The divergence between robust revenue and gross-profit growth versus the halved
+    earnings and weaker cash flow is the key investor question. If the net income decline reflects litigation
+    reserves, tax, or M&A charges rather than operating erosion, the underlying business appears intact;
+    the ~43% drop in cash on hand is the more durable watch item. We would treat this quarter as noisy
+    on profitability but constructive on demand and margin resilience.'
+  claims:
+  - id: c1
+    kind: numeric
+    text: Johnson & Johnson posted first-quarter revenue of $24.06B for the period ended March 29, 2026,
+      up 9.9% from $21.89B a year earlier.
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2025-12-29'
+      end: '2026-03-29'
+      fiscal_label: Q1 FY26
+    unit: USD
+    value: 24062000000.0
+    basis: reported
+    source_fact_ids:
+    - f1
+    derivation: null
+  - id: c2
+    kind: numeric
+    text: revenue of $24.06B, up 9.9% from $21.89B a year earlier.
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2025-12-29'
+      end: '2026-03-29'
+      fiscal_label: Q1 FY26 YoY
+    unit: pct
+    value: 9.9
+    basis: derived
+    source_fact_ids:
+    - f1
+    - f2
+    derivation: (f1 - f2) / f2 * 100
+  - id: c3
+    kind: numeric
+    text: Gross profit expanded to $15.96B from $14.54B.
+    concept: gross_profit
+    gaap_tag: GrossProfit
+    period:
+      type: duration
+      start: '2025-12-29'
+      end: '2026-03-29'
+      fiscal_label: Q1 FY26
+    unit: USD
+    value: 15956000000.0
+    basis: reported
+    source_fact_ids:
+    - f7
+    derivation: null
+  - id: c4
+    kind: numeric
+    text: keeping gross margin healthy at 66.3% (versus 66.4% in the prior-year quarter).
+    concept: gross_profit
+    gaap_tag: GrossProfit
+    period:
+      type: duration
+      start: '2025-12-29'
+      end: '2026-03-29'
+      fiscal_label: Q1 FY26 gross margin
+    unit: pct
+    value: 66.31
+    basis: derived
+    source_fact_ids:
+    - f7
+    - f1
+    derivation: f7 / f1 * 100
+  - id: c5
+    kind: numeric
+    text: cost of revenue rose to $8.11B from $7.36B.
+    concept: cost_of_revenue
+    gaap_tag: CostOfGoodsAndServicesSold
+    period:
+      type: duration
+      start: '2025-12-29'
+      end: '2026-03-29'
+      fiscal_label: Q1 FY26
+    unit: USD
+    value: 8106000000.0
+    basis: reported
+    source_fact_ids:
+    - f17
+    derivation: null
+  - id: c6
+    kind: numeric
+    text: Net income fell 52.4% to $5.24B from $10.999B.
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2025-12-29'
+      end: '2026-03-29'
+      fiscal_label: Q1 FY26 YoY
+    unit: pct
+    value: -52.4
+    basis: derived
+    source_fact_ids:
+    - f3
+    - f4
+    derivation: (f3 - f4) / f4 * 100
+  - id: c7
+    kind: numeric
+    text: diluted EPS collapsed to $2.14 from $4.54.
+    concept: eps_diluted
+    gaap_tag: EarningsPerShareDiluted
+    period:
+      type: duration
+      start: '2025-12-29'
+      end: '2026-03-29'
+      fiscal_label: Q1 FY26
+    unit: USD/share
+    value: 2.14
+    basis: reported
+    source_fact_ids:
+    - f5
+    derivation: null
+  - id: c8
+    kind: numeric
+    text: operating cash flow was $2.51B, down 39.8% from $4.17B.
+    concept: operating_cash_flow
+    gaap_tag: NetCashProvidedByUsedInOperatingActivities
+    period:
+      type: duration
+      start: '2025-12-29'
+      end: '2026-03-29'
+      fiscal_label: Q1 FY26 YoY
+    unit: pct
+    value: -39.8
+    basis: derived
+    source_fact_ids:
+    - f9
+    - f10
+    derivation: (f9 - f10) / f10 * 100
+  - id: c9
+    kind: numeric
+    text: cash and equivalents fell to $21.69B from $38.47B a year ago — a $16.79B decline.
+    concept: cash_and_equivalents
+    gaap_tag: CashAndCashEquivalentsAtCarryingValue
+    period:
+      type: instant
+      start: null
+      end: '2026-03-29'
+      fiscal_label: as of 2026-03-29
+    unit: USD
+    value: 21688000000.0
+    basis: reported
+    source_fact_ids:
+    - f15
+    derivation: null
+  - id: c10
+    kind: numeric
+    text: Total assets grew to $200.89B from $193.67B, while stockholders' equity edged up to $81.19B
+      from $78.11B.
+    concept: assets
+    gaap_tag: NetIncomeLoss
+    period:
+      type: instant
+      start: null
+      end: '2026-03-29'
+      fiscal_label: as of 2026-03-29
+    unit: USD
+    value: 200894000000.0
+    basis: reported
+    source_fact_ids:
+    - f11
+    derivation: null
+  - id: c11
+    kind: qualitative
+    text: The divergence between robust revenue and gross-profit growth versus a halved bottom line is
+      the quarter's central investor question and likely reflects one-time items rather than core operating
+      erosion.
+    quality: why_it_matters
+    supporting_claim_ids:
+    - c1
+    - c3
+    - c6
+    - c7
+  - id: c12
+    kind: qualitative
+    text: The ~43% year-over-year decline in cash on hand alongside a 39.8% drop in operating cash flow
+      is the more durable watch item for liquidity and capital deployment.
+    quality: materiality
+    supporting_claim_ids:
+    - c8
+    - c9
+  - id: c13
+    kind: qualitative
+    text: Stable gross margin near 66% and continued balance-sheet growth signal underlying demand and
+      margin resilience despite the noisy profitability print.
+    quality: tone
+    supporting_claim_ids:
+    - c4
+    - c10

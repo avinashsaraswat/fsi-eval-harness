@@ -1,0 +1,236 @@
+item_id: 70c73855434d
+ticker: CVX
+accession: 0000093410-26-000113
+form: 10-Q
+report_date: '2026-03-31'
+brief:
+  ticker: CVX
+  narrative: '## Chevron Q1 2026: Margin Compression Masks Top-Line Resilience
+
+
+    Chevron reported Q1 2026 revenue of $47.56 billion, up 3.2% from $46.10 billion a year ago, demonstrating
+    modest top-line resilience despite a softer commodity backdrop. However, the headline masks a sharply
+    deteriorating bottom line: net income fell 36.9% to $2.21 billion from $3.50 billion in Q1 2025.
+
+
+    The earnings pressure was amplified at the per-share level. Diluted EPS dropped 44.5% to $1.11 from
+    $2.00, a steeper decline than net income owing to a materially larger share count. Weighted average
+    diluted shares outstanding rose 13.4% to 1,985.9 million from 1,751.4 million — a striking increase
+    that dilutes each shareholder''s claim on earnings and reflects equity issued in connection with acquisition
+    activity.
+
+
+    Cost discipline offered little offset. Cost of revenue actually declined marginally to $28.27 billion
+    from $28.61 billion, meaning the earnings shortfall stemmed from factors below the gross line rather
+    than input inflation. Operating cash flow tells the more concerning story, falling 51.6% to $2.51
+    billion from $5.19 billion, roughly halving Chevron''s internally generated funding for dividends
+    and buybacks.
+
+
+    The balance sheet expanded dramatically. Total assets surged 28.5% to $329.55 billion from $256.40
+    billion, while stockholders'' equity rose 23.1% to $183.72 billion from $149.24 billion. The magnitude
+    of this expansion, combined with the elevated share count, is consistent with a transformative acquisition
+    that has reshaped Chevron''s capital structure and asset base.
+
+
+    **Why it matters:** The divergence between growing scale and shrinking profitability and cash generation
+    is the central tension in this quarter. Investors should scrutinize whether the enlarged asset base
+    can deliver accretive returns once integration completes, or whether Chevron has bought growth at
+    the expense of near-term per-share economics. The halving of operating cash flow warrants particular
+    attention for shareholder-return sustainability.'
+  claims:
+  - id: c1
+    kind: numeric
+    text: Chevron reported Q1 2026 revenue of $47.56 billion, up 3.2% from $46.10 billion a year ago.
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 2026
+    unit: USD
+    value: 47556000000.0
+    basis: reported
+    source_fact_ids:
+    - f1
+    derivation: null
+  - id: c2
+    kind: numeric
+    text: revenue of $47.56 billion, up 3.2% from $46.10 billion a year ago
+    concept: revenue
+    gaap_tag: RevenueFromContractWithCustomerExcludingAssessedTax
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 2026 vs Q1 2025
+    unit: pct
+    value: 3.16
+    basis: derived
+    source_fact_ids:
+    - f1
+    - f2
+    derivation: (f1 - f2) / f2 * 100
+  - id: c3
+    kind: numeric
+    text: net income fell 36.9% to $2.21 billion from $3.50 billion in Q1 2025.
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 2026 vs Q1 2025
+    unit: pct
+    value: -36.86
+    basis: derived
+    source_fact_ids:
+    - f3
+    - f4
+    derivation: (f3 - f4) / f4 * 100
+  - id: c4
+    kind: numeric
+    text: net income fell to $2.21 billion from $3.50 billion in Q1 2025.
+    concept: net_income
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 2026
+    unit: USD
+    value: 2210000000.0
+    basis: reported
+    source_fact_ids:
+    - f3
+    derivation: null
+  - id: c5
+    kind: numeric
+    text: Diluted EPS dropped 44.5% to $1.11 from $2.00.
+    concept: eps_diluted
+    gaap_tag: EarningsPerShareDiluted
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 2026 vs Q1 2025
+    unit: pct
+    value: -44.5
+    basis: derived
+    source_fact_ids:
+    - f5
+    - f6
+    derivation: (f5 - f6) / f6 * 100
+  - id: c6
+    kind: numeric
+    text: Weighted average diluted shares outstanding rose 13.4% to 1,985.9 million from 1,751.4 million.
+    concept: shares_outstanding_diluted
+    gaap_tag: WeightedAverageNumberOfDilutedSharesOutstanding
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 2026 vs Q1 2025
+    unit: pct
+    value: 13.39
+    basis: derived
+    source_fact_ids:
+    - f15
+    - f16
+    derivation: (f15 - f16) / f16 * 100
+  - id: c7
+    kind: numeric
+    text: Cost of revenue actually declined marginally to $28.27 billion from $28.61 billion.
+    concept: cost_of_revenue
+    gaap_tag: NetIncomeLoss
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 2026
+    unit: USD
+    value: 28265000000.0
+    basis: reported
+    source_fact_ids:
+    - f13
+    derivation: null
+  - id: c8
+    kind: numeric
+    text: Operating cash flow falling 51.6% to $2.51 billion from $5.19 billion, roughly halving Chevron's
+      internally generated funding.
+    concept: operating_cash_flow
+    gaap_tag: NetCashProvidedByUsedInOperatingActivities
+    period:
+      type: duration
+      start: '2026-01-01'
+      end: '2026-03-31'
+      fiscal_label: Q1 2026 vs Q1 2025
+    unit: pct
+    value: -51.55
+    basis: derived
+    source_fact_ids:
+    - f7
+    - f8
+    derivation: (f7 - f8) / f8 * 100
+  - id: c9
+    kind: numeric
+    text: Total assets surged 28.5% to $329.55 billion from $256.40 billion.
+    concept: assets
+    gaap_tag: Assets
+    period:
+      type: instant
+      start: null
+      end: '2026-03-31'
+      fiscal_label: As of 2026-03-31 vs 2025-03-31
+    unit: pct
+    value: 28.53
+    basis: derived
+    source_fact_ids:
+    - f9
+    - f10
+    derivation: (f9 - f10) / f10 * 100
+  - id: c10
+    kind: numeric
+    text: while stockholders' equity rose 23.1% to $183.72 billion from $149.24 billion.
+    concept: stockholders_equity
+    gaap_tag: StockholdersEquity
+    period:
+      type: instant
+      start: null
+      end: '2026-03-31'
+      fiscal_label: As of 2026-03-31 vs 2025-03-31
+    unit: pct
+    value: 23.1
+    basis: derived
+    source_fact_ids:
+    - f11
+    - f12
+    derivation: (f11 - f12) / f12 * 100
+  - id: c11
+    kind: qualitative
+    text: The steeper EPS decline versus net income, combined with a 13.4% jump in share count and a 28.5%
+      surge in assets, is consistent with a transformative acquisition that reshaped Chevron's capital
+      structure.
+    quality: materiality
+    supporting_claim_ids:
+    - c5
+    - c6
+    - c9
+    - c10
+  - id: c12
+    kind: qualitative
+    text: The divergence between growing scale and shrinking profitability and cash generation is the
+      central tension of the quarter, raising questions about accretion once integration completes.
+    quality: why_it_matters
+    supporting_claim_ids:
+    - c3
+    - c8
+    - c9
+  - id: c13
+    kind: qualitative
+    text: The halving of operating cash flow warrants particular attention for the sustainability of dividends
+      and buybacks.
+    quality: tone
+    supporting_claim_ids:
+    - c8
