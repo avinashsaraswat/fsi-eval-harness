@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this harness, its corpus, or its detection method, please cite it."
+title: "fsi-eval-harness: a verify-and-regenerate loop for LLM output on regulated financial data"
+abstract: >-
+  A deterministic verifier that checks every numeric GAAP claim an LLM makes against XBRL
+  ground truth, a narrative grounding gate with a measured false-ground floor, and a
+  194-item blinded error-injection corpus with held-out labels for measuring whether an
+  evaluator can fail at all.
+type: software
+authors:
+  - given-names: Avinash
+    family-names: Saraswat
+    affiliation: "Independent, personal capacity"
+repository-code: "https://github.com/avinashsaraswat/fsi-eval-harness"
+license: Apache-2.0
+keywords:
+  - LLM evaluation
+  - error injection
+  - AI assurance
+  - model risk
+  - XBRL
+  - financial reporting

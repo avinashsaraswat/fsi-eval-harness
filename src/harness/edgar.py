@@ -67,6 +67,35 @@ def latest_filing(ticker: str) -> FilingRef:
     raise LookupError(f"no 10-Q/10-K found in recent filings for {ticker}")
 
 
+def filing_by_accession(ticker: str, accession: str) -> FilingRef:
+    """The specific 10-Q/10-K named by *accession*, so a run pins to a fixed filing.
+
+    ``latest_filing`` moves as the company files. Anything that has to be
+    reproducible months later — the error-injection corpus, published detection
+    numbers — must resolve the filing it was built against, not today's newest.
+    """
+    cik = ticker_to_cik(ticker)
+    subs = _get_json(SUBMISSIONS_URL.format(cik=cik))
+    recent = subs["filings"]["recent"]
+    want = accession.strip()
+    want_bare = want.replace("-", "")
+    for i, acc in enumerate(recent["accessionNumber"]):
+        if acc == want or acc.replace("-", "") == want_bare:
+            return FilingRef(
+                ticker=ticker.upper(),
+                cik=cik,
+                form=recent["form"][i],
+                accession=acc,
+                filing_date=recent["filingDate"][i],
+                report_date=recent["reportDate"][i],
+                company_name=subs.get("name", ticker.upper()),
+            )
+    raise LookupError(
+        f"accession {accession!r} not found in recent filings for {ticker}; "
+        "the corpus pins a filing that has aged out of the SEC recent-filings window"
+    )
+
+
 def company_facts(ticker: str) -> dict:
     """Full XBRL company-facts JSON for the ticker."""
     cik = ticker_to_cik(ticker)

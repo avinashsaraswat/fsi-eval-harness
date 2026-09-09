@@ -116,7 +116,7 @@ def _selftest() -> int:
 def run(judge_kind: str, max_spend: float, provider: str | None = None) -> int:
     import yaml
 
-    from harness.edgar import company_facts, latest_filing
+    from harness.edgar import company_facts, filing_by_accession, latest_filing
     from harness.facts import build_fact_index
     from harness.schema import Brief
     from harness.verify import narrative_coverage_audit, verify_claim
@@ -148,7 +148,7 @@ def run(judge_kind: str, max_spend: float, provider: str | None = None) -> int:
         ledger = Ledger(max_spend=max_spend)
         judge = ApiJudge(make_client(prov), model=judge_model, ledger=ledger)
 
-    indexes: dict[str, object] = {}
+    indexes: dict[tuple[str, str | None], object] = {}
     per_class: dict[str, list[dict]] = defaultdict(list)
     clean_numeric = [0, 0]   # [flagged, total] over clean items
     clean_qual = [0, 0]
@@ -160,9 +160,21 @@ def run(judge_kind: str, max_spend: float, provider: str | None = None) -> int:
             print(f"  unlabeled item {rec['item_id']} — skipped", file=sys.stderr)
             continue
         t = rec["ticker"]
-        if t not in indexes:
-            indexes[t], _ = build_fact_index(company_facts(t), latest_filing(t))
-        index = indexes[t]
+        # Pin to the accession the item was built against. Using latest_filing here
+        # silently re-based the corpus on whatever the company had filed most recently,
+        # so published numbers stopped reproducing as soon as a new 10-Q landed.
+        acc = rec.get("accession")
+        key = (t, acc)
+        if key not in indexes:
+            ref = filing_by_accession(t, acc) if acc else latest_filing(t)
+            if acc is None:
+                print(
+                    f"  {t}: item {rec['item_id']} records no accession — "
+                    "falling back to latest filing, this run is not reproducible",
+                    file=sys.stderr,
+                )
+            indexes[key], _ = build_fact_index(company_facts(t), ref)
+        index = indexes[key]
         brief = Brief.model_validate(rec["brief"])
 
         verdicts = [verify_claim(c, index) for c in brief.numeric_claims()]
@@ -206,10 +218,12 @@ def run(judge_kind: str, max_spend: float, provider: str | None = None) -> int:
 
     # ---- aggregate -------------------------------------------------------
     n_min = min_n_for_floor()
+    # indexes is keyed by (ticker, accession); clusters are filers, so count tickers.
+    n_filers = len({t for t, _ in indexes})
     lines = [f"# Judge-detection report — judge: {judge_kind}", "",
-             f"Corpus: {sum(len(v) for v in per_class.values())} items over {len(indexes)} filers. "
+             f"Corpus: {sum(len(v) for v in per_class.values())} items over {n_filers} filers. "
              f"Floor {FLOOR:.0%} / target {TARGET:.0%}; Wilson 95% + cluster bootstrap "
-             f"({len(indexes)} clusters, {BOOT_REPS} reps, seed {BOOT_SEED}).",
+             f"({n_filers} clusters, {BOOT_REPS} reps, seed {BOOT_SEED}).",
              "",
              f"**Sizing rule:** a true-{TARGET:.0%} detector needs **n ≥ {n_min}** per class for its "
              f"Wilson lower bound to clear the {FLOOR:.0%} floor.",

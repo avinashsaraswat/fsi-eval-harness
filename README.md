@@ -8,6 +8,32 @@ trail.
 
 *(Working name — slice 1.)*
 
+**Author:** Avinash Saraswat. Built and published in a personal capacity, on personal time,
+against public SEC data. Views are his own and not those of any employer.
+
+## Run it without an API key
+
+Two things work on a clean clone with no keys, no network and no account. They are the fastest
+way to see whether the method is worth your time.
+
+```bash
+git clone https://github.com/avinashsaraswat/fsi-eval-harness
+cd fsi-eval-harness
+pip install -e .
+
+python evals/detection.py --selftest   # the statistics layer, self-checking
+pytest -q                              # 49 tests, including the verifier and the grounding gate
+```
+
+The selftest prints the sizing rule the detection numbers rest on: a detector that is truly 90%
+accurate needs at least 54 items per error class before its Wilson lower bound clears an 80%
+floor. That rule, the Wilson intervals, the cluster bootstrap and the Rogan-Gladen prevalence
+correction are all in `evals/detection.py` and none of them are specific to finance.
+
+Reproducing the full published detection table needs `SEC_USER_AGENT` set, because it fetches
+company facts from EDGAR. Each corpus item pins the accession number it was built against, so a
+re-run resolves the same filing rather than whatever the company has filed since.
+
 ## Scope (slice 1) — read this first
 
 This slice isolates the **verification loop** from the **extraction problem** on purpose, and the
