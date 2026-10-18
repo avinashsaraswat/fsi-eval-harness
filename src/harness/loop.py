@@ -135,6 +135,11 @@ def run_ticker(ticker: str, generator: Generator, judge: Judge, run_id: str,
         if unsupported_ids:
             brief = _strip_qualitative(brief, unsupported_ids, log)
         coverage_pct, uncovered = narrative_coverage(brief, index)
+        unsafe_prose = any(d.reason_code == "unsafe_partial_prose" for d in drops)
+        if uncovered or unsafe_prose:
+            status = "FAILED"
+            log(-1, "retry_exhaustion", "brief", "dropped", "unsafe_partial",
+                "remaining prose cannot be verified or safely removed")
 
     attempts_used = (reconciled_at + 1) if reconciled_at is not None else max_retries + 1
     m = brief_metrics(ticker, status, attempts_used, brief, verdicts, judge_verdicts,
@@ -172,9 +177,13 @@ def _strip_failing(brief: Brief, verdicts: list[Verdict], log) -> Brief:
     failing_ids = {v.claim_id for v in verdicts if v.status != "pass"}
     narrative = brief.narrative
     for c in brief.numeric_claims():
-        if c.id in failing_ids and c.text and c.text in narrative:
-            narrative = narrative.replace(c.text, "").replace("  ", " ")
-            log(-1, "retry_exhaustion", c.id, "dropped", "dropped_after_retries", c.text[:120])
+        if c.id in failing_ids:
+            if c.text and c.text in narrative:
+                narrative = narrative.replace(c.text, "").replace("  ", " ")
+                log(-1, "retry_exhaustion", c.id, "dropped", "dropped_after_retries", c.text[:120])
+            else:
+                log(-1, "retry_exhaustion", c.id, "dropped", "unsafe_partial_prose",
+                    "failing numeric claim has no exact sentence match")
     kept = [c for c in brief.claims if c.id not in failing_ids]
     return Brief(ticker=brief.ticker, narrative=narrative, claims=kept)
 
@@ -185,9 +194,13 @@ def _strip_qualitative(brief: Brief, unsupported_ids: set[str], log) -> Brief:
     the prose (exact-match on the claim's recorded sentence); the claim is always dropped."""
     narrative = brief.narrative
     for q in brief.qualitative_claims():
-        if q.id in unsupported_ids and q.text and q.text in narrative:
-            narrative = narrative.replace(q.text, "").replace("  ", " ")
-            log(-1, "judge", q.id, "dropped", "judge_unsupported_stripped", q.text[:120])
+        if q.id in unsupported_ids:
+            if q.text and q.text in narrative:
+                narrative = narrative.replace(q.text, "").replace("  ", " ")
+                log(-1, "judge", q.id, "dropped", "judge_unsupported_stripped", q.text[:120])
+            else:
+                log(-1, "judge", q.id, "dropped", "unsafe_partial_prose",
+                    "unsupported qualitative claim has no exact sentence match")
     kept = [c for c in brief.claims
             if not (isinstance(c, QualitativeClaim) and c.id in unsupported_ids)]
     return Brief(ticker=brief.ticker, narrative=narrative, claims=kept)

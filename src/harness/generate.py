@@ -38,7 +38,7 @@ class Generator(Protocol):
 
 
 # --------------------------------------------------------------------------- #
-# API-backed (provider seam: Gemini default, Anthropic behind the same interface)
+# API-backed (provider seam: Gemini client behind a one-method protocol)
 # --------------------------------------------------------------------------- #
 
 _SYSTEM = """You are a sell-side-quality financial analyst. Write a curated signal brief for the
@@ -97,8 +97,8 @@ class ApiGenerator:
 def cached_call(client, *, model: str, system: str, user: str, max_tokens: int, ledger=None) -> tuple[str, dict]:
     """Disk-cached provider call. Key = sha256(model, system, user, max_tokens).
 
-    The key is provider-agnostic by construction — the model id disambiguates — so
-    prototyping-era cache entries replay unchanged regardless of the active provider.
+    The key is client-agnostic by construction — the model id disambiguates — so a
+    cached entry replays unchanged under any client, including a test stub.
     """
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     key = hashlib.sha256(json.dumps(

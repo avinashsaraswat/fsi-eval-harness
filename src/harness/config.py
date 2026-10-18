@@ -16,16 +16,14 @@ OUT_DIR = REPO_ROOT / "out"
 # (XOM swapped -> CVX 2026-07-16: ticker now maps to a successor holding-co CIK with no 10-Q/K yet.)
 TICKERS = ["AAPL", "MSFT", "NVDA", "COST", "KO", "JNJ", "CAT", "CVX"]
 
-# Supported default provider: the Gemini API. The Anthropic path stays available
-# behind the same seam (provider adapter in providers.py) — it replays the
-# prototyping-era cache at $0 and is selectable via --provider / HARNESS_PROVIDER.
+# Provider: the Gemini API (adapter in providers.py). HARNESS_PROVIDER is kept
+# as the seam's selector; "gemini" is the only accepted value.
 PROVIDER = os.environ.get("HARNESS_PROVIDER", "gemini")
 
 # Per-provider (generation, judge) defaults. Both Gemini defaults sit on the GA
 # flagship rather than a -preview id: a shipped default should not churn.
 DEFAULT_MODELS = {
     "gemini": ("gemini-3.6-flash", "gemini-3.6-flash"),
-    "anthropic": ("claude-opus-4-8", "claude-haiku-4-5-20251001"),
 }
 
 def resolve_models(provider: str) -> tuple[str, str]:
@@ -41,9 +39,6 @@ GEN_MODEL, JUDGE_MODEL = resolve_models(PROVIDER)
 PRICES = {
     "gemini-3.6-flash": (1.5, 7.5),
     "gemini-3.1-pro-preview": (2.0, 12.0),   # <=200K-token tier; harness prompts are far below it
-    "claude-opus-4-8": (5.0, 25.0),
-    "claude-sonnet-5": (3.0, 15.0),
-    "claude-haiku-4-5-20251001": (1.0, 5.0),
 }
 
 MAX_RETRIES = 2          # 3 total attempts
@@ -95,11 +90,24 @@ CONCEPTS: dict[str, Concept] = {
 }
 
 
+class ConfigError(RuntimeError):
+    """A required setting is missing or unusable. The CLI prints the message, not a traceback."""
+
+
+# The placeholder value shipped in .env.example.
+SEC_USER_AGENT_PLACEHOLDER = "Your Name you@example.com"
+
+_UA_HOWTO = ("Set it in .env to your name and a real contact email, "
+             "e.g. 'Jane Doe jane@yourdomain.com' (see .env.example).")
+
+
 def sec_user_agent() -> str:
+    """SEC fair-access policy asks for a descriptive User-Agent with a contact email."""
     ua = os.environ.get("SEC_USER_AGENT", "").strip().strip('"')
     if not ua:
-        raise RuntimeError(
-            "SEC_USER_AGENT is not set. SEC fair-access policy requires a descriptive "
-            "User-Agent with a contact email (see .env.example)."
-        )
+        raise ConfigError(f"SEC_USER_AGENT is not set. {_UA_HOWTO}")
+    if ua.lower() == SEC_USER_AGENT_PLACEHOLDER.lower() or "@example.com" in ua.lower():
+        raise ConfigError(f"SEC_USER_AGENT is still the example placeholder. {_UA_HOWTO}")
+    if "@" not in ua:
+        raise ConfigError(f"SEC_USER_AGENT has no contact email. {_UA_HOWTO}")
     return ua

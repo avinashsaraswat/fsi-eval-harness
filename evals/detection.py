@@ -7,13 +7,11 @@ variance on shipped output — this measures whether the pipeline DETECTS plante
 
   TPR (sensitivity)  per error class: share of injected items where the expected surface
                      flags the planted target
-  TNR (specificity)  claim-level, on the clean items only: share of clean claims not flagged
+  Baseline flags    claim-level, on unseeded items; qualitative labels lack adjudication
   CIs                Wilson (item-level) + cluster bootstrap resampling the 8 base filers
                      (items derived from one filer share a brief and are not independent)
-  Rogan-Gladen       corrected prevalence pi = (p_obs + Sp - 1) / (Se + Sp - 1), validated
-                     against the corpus's own known injection prevalence
-  sizing             n per class is JUSTIFIED from the floor: smallest n where a true-90%
-                     detector's Wilson lower bound clears the 80% floor
+  Rogan-Gladen       formula helper only; no corpus prevalence estimate is emitted
+  sizing             rounded target-count convention; not a power calculation
 
 Usage:
   python evals/detection.py                 # deterministic surfaces + rule-based mock judge, $0
@@ -85,8 +83,8 @@ def rogan_gladen(p_obs: float, se: float, sp: float) -> float:
 
 
 def min_n_for_floor(target: float = TARGET, floor: float = FLOOR) -> int:
-    """Smallest n where a detector at the 90% target yields a Wilson lower bound clearing
-    the 80% floor — the D5 'size n from the floor' rule."""
+    """Smallest n where round(target * n) observed hits clears the Wilson floor.
+    This count convention is not a power calculation for a true detection rate."""
     for n in range(5, 2001):
         if wilson(round(target * n), n)[0] >= floor:
             return n
@@ -105,7 +103,7 @@ def _selftest() -> int:
     assert 30 <= n_min <= 80, n_min
     ci = cluster_bootstrap([("a", 1), ("a", 1), ("b", 1), ("b", 0)], reps=2000)
     assert 0.0 <= ci[0] <= ci[1] <= 1.0
-    print(f"selftest OK (min n for 90% detector to clear 80% floor: {n_min})")
+    print(f"selftest OK (min n under the rounded-count convention: {n_min})")
     return 0
 
 
@@ -140,7 +138,7 @@ def run(judge_kind: str, max_spend: float, provider: str | None = None) -> int:
         from harness.metrics import Ledger
         from harness.providers import make_client
         prov = provider or PROVIDER
-        key_env = {"gemini": "GEMINI_API_KEY", "anthropic": "ANTHROPIC_API_KEY"}[prov]
+        key_env = {"gemini": "GEMINI_API_KEY"}[prov]
         if not os.environ.get(key_env):
             print(f"{key_env} not set — needed for --judge real.", file=sys.stderr)
             return 2
@@ -194,8 +192,8 @@ def run(judge_kind: str, max_spend: float, provider: str | None = None) -> int:
             if judge is not None:
                 clean_qual[0] += len(judge_flags)
                 clean_qual[1] += len(brief.qualitative_claims())
-            hit = bool(numeric_flags or uncovered or judge_flags)  # any flag on clean = FP
-            per_class[cls].append({"item": rec["item_id"], "ticker": t, "false_flag": hit})
+            hit = bool(numeric_flags or uncovered or judge_flags)  # unseeded does not mean error-free
+            per_class[cls].append({"item": rec["item_id"], "ticker": t, "flagged": hit})
             continue
 
         if cls in ("wrong_value", "wrong_period", "wrong_tag"):
@@ -225,8 +223,8 @@ def run(judge_kind: str, max_spend: float, provider: str | None = None) -> int:
              f"Floor {FLOOR:.0%} / target {TARGET:.0%}; Wilson 95% + cluster bootstrap "
              f"({n_filers} clusters, {BOOT_REPS} reps, seed {BOOT_SEED}).",
              "",
-             f"**Sizing rule:** a true-{TARGET:.0%} detector needs **n ≥ {n_min}** per class for its "
-             f"Wilson lower bound to clear the {FLOOR:.0%} floor.",
+             f"**Sizing convention:** n = {n_min} with round({TARGET} * n) observed detections "
+             f"clears the {FLOOR:.0%} Wilson lower bound. This is not a power calculation.",
              "", "| class | n | detected | TPR | Wilson 95% | bootstrap 95% | vs floor/target |",
              "|---|---|---|---|---|---|---|"]
     results: dict = {"judge": judge_kind, "min_n_for_floor": n_min, "classes": {}}
@@ -258,39 +256,43 @@ def run(judge_kind: str, max_spend: float, provider: str | None = None) -> int:
             results["classes"][cls]["by_species"] = {
                 s: {"n": len(v), "detected": sum(v)} for s, v in sorted(by_species.items())}
 
-    fn_num, n_num = clean_numeric
-    tnr_num = 1 - fn_num / n_num if n_num else float("nan")
-    lines += ["", "## Specificity (clean items only — claim level)", ""]
-    lines.append(f"- numeric claims: {n_num - fn_num}/{n_num} unflagged — TNR {tnr_num:.1%}, "
-                 f"Wilson [{wilson(n_num - fn_num, n_num)[0]:.1%}, {wilson(n_num - fn_num, n_num)[1]:.1%}]. "
-                 f"*Conditioned on reconciled output — clean briefs are the harness's own survivors.*")
-    results["tnr_numeric"] = {"n": n_num, "false_flags": fn_num,
-                              "tnr": round(tnr_num, 4) if n_num else None}
-    tnr_q = None
+    flagged_num, n_num = clean_numeric
+    lines += ["", "## Flags on unseeded baseline items", ""]
+    lines.append(f"- numeric claims: {n_num - flagged_num}/{n_num} unflagged.")
+    results["unseeded_numeric"] = {"n": n_num, "flagged": flagged_num,
+                                    "unflagged": n_num - flagged_num}
     if judge is not None and clean_qual[1]:
-        fq, nq = clean_qual
-        tnr_q = 1 - fq / nq
-        lines.append(f"- qualitative claims ({judge_kind} judge): {nq - fq}/{nq} unflagged — "
-                     f"TNR {tnr_q:.1%}, Wilson [{wilson(nq - fq, nq)[0]:.1%}, {wilson(nq - fq, nq)[1]:.1%}]")
-        results["tnr_qualitative"] = {"n": nq, "false_flags": fq, "tnr": round(tnr_q, 4)}
+        flagged_q, n_q = clean_qual
+        lines.append(f"- qualitative claims ({judge_kind} judge): "
+                     f"{n_q - flagged_q}/{n_q} unflagged; {flagged_q} flagged.")
+        results["unseeded_qualitative"] = {
+            "n": n_q, "flagged": flagged_q, "unflagged": n_q - flagged_q,
+            "reference_labels_independently_adjudicated": False,
+        }
+    lines.append("Unseeded baseline claims are not independently adjudicated as error-free. "
+                 "These flag counts do not establish qualitative false alarms or specificity. "
+                 "Claims also share source briefs.")
+    results["measurement_schema_version"] = 2
 
     if inj_total:
-        se = inj_hits / inj_total
-        sp = tnr_num if tnr_q is None else (tnr_num + tnr_q) / 2
-        clean_n = len(per_class.get("clean", []))
-        clean_fp = sum(r["false_flag"] for r in per_class.get("clean", []))
-        total_items = inj_total + clean_n
-        true_prev = inj_total / total_items
-        p_obs = (inj_hits + clean_fp) / total_items
-        corrected = rogan_gladen(p_obs, se, sp)
-        lines += ["", "## Rogan-Gladen check", "",
-                  f"Pooled Se {se:.1%}, Sp {sp:.1%}. Observed item flag rate {p_obs:.1%} on a corpus with "
-                  f"true injection prevalence {true_prev:.1%} → corrected estimate **{corrected:.1%}**. "
-                  f"In production the same correction turns the pipeline's observed flag rate into a "
-                  f"true-error-prevalence estimate.",]
-        results["rogan_gladen"] = {"se": round(se, 4), "sp": round(sp, 4),
-                                   "p_obs": round(p_obs, 4), "true_prevalence": round(true_prev, 4),
-                                   "corrected": round(corrected, 4)}
+        baseline_rows = per_class.get("clean", [])
+        baseline_flagged = sum(r["flagged"] for r in baseline_rows)
+        total_items = inj_total + len(baseline_rows)
+        results["corpus_item_counts"] = {
+            "seeded_items": inj_total, "seeded_targets_detected": inj_hits,
+            "unseeded_items": len(baseline_rows), "unseeded_items_flagged": baseline_flagged,
+            "total_items": total_items,
+        }
+        results["rogan_gladen"] = {
+            "status": "not_estimated", "corrected": None,
+            "reason": "Mixed measurement units and unadjudicated baseline labels.",
+        }
+        lines += ["", "## Prevalence estimate withheld", "",
+                  f"Seeded targets detected: {inj_hits}/{inj_total} items. "
+                  f"Unseeded items flagged: {baseline_flagged}/{len(baseline_rows)}.",
+                  "No corrected-prevalence estimate is reported. Item-level detection cannot "
+                  "be combined with claim-level unflagged fractions. Qualitative reference "
+                  "labels also lack independent adjudication."]
 
     lines += ["", "## Reading the omission row", "",
               "Omission TPR measures a *designed blindness*: reconciliation checks what is present "
@@ -311,9 +313,9 @@ def run(judge_kind: str, max_spend: float, provider: str | None = None) -> int:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="TPR/TNR detection measurement over the injected corpus")
+    ap = argparse.ArgumentParser(description="Seeded detection and descriptive baseline flags over the corpus")
     ap.add_argument("--judge", choices=["mock", "real", "none"], default="mock")
-    ap.add_argument("--provider", choices=["gemini", "anthropic"], default=None,
+    ap.add_argument("--provider", choices=["gemini"], default=None,
                     help="judge provider for --judge real (default: HARNESS_PROVIDER env or gemini)")
     ap.add_argument("--max-spend", type=float, default=3.0)
     ap.add_argument("--selftest", action="store_true")

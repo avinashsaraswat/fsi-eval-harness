@@ -3,7 +3,7 @@
 Why this exists: on the clean real filing set the deterministic verifier never fires
 `wrong_tag` / `wrong_period` — the model cites its numbers correctly — so that
 citation-integrity guarantee is only *proven* load-bearing under `--mock`. This takes a
-REAL Opus-generated brief (served from the local cache -> $0) over REAL XBRL facts, injects
+REAL model-generated brief (served from the local cache -> $0) over REAL XBRL facts, injects
 one period error and one tag error into a claim the model got right, and shows the SAME
 verifier flip that claim RED, then GREEN again once the citation is corrected. One variable
 changes at a time, so the red<->green is unambiguous.
@@ -14,7 +14,7 @@ wrong us-gaap tag. The model did not actually make these — we make them, to pr
 fires on real data, not just on synthetic mock faults.
 
 Budget: default max-spend is $0, so it runs only if the generation is already cached and
-aborts cleanly otherwise (no surprise spend). Pass --allow-spend to permit one live Opus
+aborts cleanly otherwise (no surprise spend). Pass --allow-spend to permit one live
 generation when the brief is not cached.
 """
 
@@ -83,8 +83,7 @@ def demonstrate(ticker: str, allow_spend: bool, client=None, model: str | None =
         print(
             f"[adversarial] {ticker}: this generation is not in the local cache for {model}, so a "
             f"live call would be needed.\n  Re-run with --allow-spend once real spend is approved "
-            f"(one {model} generation, well under $1) — or --provider anthropic to replay the "
-            f"prototyping-era cache.",
+            f"(one {model} generation, well under $1).",
             file=sys.stderr,
         )
         return 3

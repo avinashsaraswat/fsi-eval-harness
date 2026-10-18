@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal, Optional, Union
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 
 class FilingRef(BaseModel):
@@ -70,6 +70,13 @@ class Brief(BaseModel):
     narrative: str                 # markdown; every number must be backed by a NumericClaim
     claims: list[Claim]
 
+    @model_validator(mode="after")
+    def unique_claim_ids(self) -> "Brief":
+        ids = [claim.id for claim in self.claims]
+        if len(ids) != len(set(ids)):
+            raise ValueError("claim IDs must be unique within a brief")
+        return self
+
     def numeric_claims(self) -> list[NumericClaim]:
         return [c for c in self.claims if isinstance(c, NumericClaim)]
 
@@ -82,7 +89,7 @@ class Verdict(BaseModel):
     status: Literal["pass", "fail", "unverifiable"]
     reason: Literal[
         "ok", "value_mismatch", "wrong_period", "wrong_tag",
-        "bad_derivation", "unknown_fact_id", "unresolvable",
+        "bad_derivation", "unknown_fact_id", "unresolvable", "wrong_unit",
     ]
     claimed: Optional[float] = None
     actual: Optional[float] = None

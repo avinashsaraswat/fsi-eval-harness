@@ -57,7 +57,24 @@ class ApiJudge:
         if text.startswith("```"):
             text = text.split("```")[1].removeprefix("json").strip()
         # strict=False: tolerate raw control chars inside strings (Gemini JSON-mode quirk)
-        return [JudgeVerdict.model_validate(v) for v in json.loads(text, strict=False)]
+        decoded = json.loads(text, strict=False)
+        if not isinstance(decoded, list):
+            raise ValueError("judge response must be an array")
+        result = [JudgeVerdict.model_validate(v, strict=True) for v in decoded]
+        expected = [q.id for q in quals]
+        actual = [v.claim_id for v in result]
+        if len(set(expected)) != len(expected):
+            raise ValueError("qualitative claim IDs must be unique")
+        if len(actual) != len(expected) or set(actual) != set(expected):
+            raise ValueError("judge response must contain exactly one verdict per qualitative claim")
+        by_id = {v.claim_id: v for v in result}
+        for q in quals:
+            valid_citations = bool(q.supporting_claim_ids) and all(
+                cid in passed and cid in numeric for cid in q.supporting_claim_ids)
+            if not valid_citations:
+                by_id[q.id] = JudgeVerdict(claim_id=q.id, supported=False,
+                                           reason="cites unverified or no numeric claims")
+        return [by_id[q.id] for q in quals]
 
 
 class MockJudge:

@@ -20,7 +20,7 @@ def write_result(run_id: str, r: BriefResult) -> Path:
     d.mkdir(parents=True, exist_ok=True)
 
     if r.brief is not None:
-        lines = [r.brief.narrative, "\n\n## Claims & verdicts\n"]
+        lines = [f"Status: {r.status}\n", r.brief.narrative, "\n\n## Claims & verdicts\n"]
         vmap = {v.claim_id: v for v in r.verdicts}
         rows = []
         for c in r.brief.numeric_claims():
@@ -34,6 +34,9 @@ def write_result(run_id: str, r: BriefResult) -> Path:
             lines.append(tabulate([[j.claim_id, "✓" if j.supported else "✗", j.reason]
                                    for j in r.judge_verdicts], headers=["claim", "supported", "reason"]))
         (d / "brief.md").write_text("\n".join(lines))
+    else:
+        # A reused run ID must not leave a prior successful brief beside failed metrics.
+        (d / "brief.md").unlink(missing_ok=True)
 
     (d / "droplog.jsonl").write_text("\n".join(e.model_dump_json() for e in r.drops))
     (d / "droplog.md").write_text(tabulate(

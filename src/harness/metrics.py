@@ -1,8 +1,9 @@
-"""Cost ledger (with hard --max-spend abort) and per-brief/aggregate metrics."""
+"""Cost ledger (checks --max-spend before a new call) and per-brief/aggregate metrics."""
 
 from __future__ import annotations
 
 from collections import Counter
+import math
 
 from .config import DEFAULT_MAX_SPEND, MIN_CLAIMS, PRICES
 from .schema import Brief, BriefMetrics, DropEntry, JudgeVerdict, Verdict
@@ -14,6 +15,8 @@ class BudgetExceeded(RuntimeError):
 
 class Ledger:
     def __init__(self, max_spend: float = DEFAULT_MAX_SPEND):
+        if not math.isfinite(max_spend) or max_spend < 0:
+            raise ValueError("max_spend must be finite and nonnegative")
         self.max_spend = max_spend
         self.tokens_in = 0
         self.tokens_out = 0
@@ -22,7 +25,7 @@ class Ledger:
         self.cache_hits = 0   # calls served from the disk cache ($0, 0 tokens)
 
     def add(self, model: str, tokens_in: int, tokens_out: int) -> None:
-        pin, pout = PRICES.get(model, (5.0, 25.0))  # unknown model: price as Opus, conservative
+        pin, pout = PRICES.get(model, (5.0, 25.0))  # unknown model: conservative ceiling price
         self.tokens_in += tokens_in
         self.tokens_out += tokens_out
         self.spend += tokens_in / 1e6 * pin + tokens_out / 1e6 * pout

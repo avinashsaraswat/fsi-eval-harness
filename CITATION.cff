@@ -7,10 +7,12 @@ abstract: >-
   194-item blinded error-injection corpus with held-out labels for measuring whether an
   evaluator can fail at all.
 type: software
+version: "0.2.0"
 authors:
   - given-names: Avinash
     family-names: Saraswat
     affiliation: "Independent, personal capacity"
+    orcid: "https://orcid.org/0009-0004-6914-7614"
 repository-code: "https://github.com/avinashsaraswat/fsi-eval-harness"
 license: Apache-2.0
 keywords:

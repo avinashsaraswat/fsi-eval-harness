@@ -181,6 +181,6 @@ NVIDIA's fiscal Q1 (ended 2026-04-26) extended its extraordinary growth trajecto
 
 ## When done
 
-Hand the 16 numbers back in-session (or say "worksheet filled") — Claude transcribes them into
-`evals/gold/briefs/*.yaml`, runs `.venv/bin/python evals/correlation.py`, and files the result.
-Do **not** hand-edit the YAML; transcription is Claude's job, judgment is yours.
+Hand the 16 numbers back in-session (or say "worksheet filled"). They are transcribed into
+`evals/gold/briefs/*.yaml`, `.venv/bin/python evals/correlation.py` is run, and the result is filed.
+Do **not** hand-edit the YAML; transcription is a separate step, judgment is yours.

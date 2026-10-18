@@ -15,7 +15,7 @@ from .config import ABS_TOL_DERIVED_PCT, ABS_TOL_EPS, REL_TOL_REPORTED
 from .facts import FactIndex
 from .schema import Brief, NumericClaim, Verdict
 
-_NUM_RE = re.compile(r"(?<![\w.])\$?(\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+\.\d+|\d{3,})(\s*(?:billion|million|trillion|B|M|T))?%?")
+_NUM_RE = re.compile(r"(?<![\w.])\$?(\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+\.\d+|\d+)(\s*(?:billion|million|trillion|B|M|T))?(\s*(?:%|bps?\b|basis points?\b|pp\b|USD(?:/shares?)?\b|shares\b))?")
 _SCALE = {"billion": 1e9, "B": 1e9, "million": 1e6, "M": 1e6, "trillion": 1e12, "T": 1e12}
 
 
@@ -39,7 +39,13 @@ def verify_claim(claim: NumericClaim, index: FactIndex) -> Verdict:
             return Verdict(claim_id=claim.id, status="fail", reason="wrong_tag",
                            claimed=claim.value, actual=f.value,
                            detail=f"claim declares {claim.concept}/{claim.gaap_tag}, fact {f.fact_id} is {f.concept}/{f.gaap_tag}")
-        if f.end != claim.period.end or (f.start or None) != (claim.period.start or None):
+        expected_unit = "USD/share" if f.unit == "USD/shares" else f.unit
+        if claim.unit != expected_unit:
+            return Verdict(claim_id=claim.id, status="fail", reason="wrong_unit",
+                           claimed=claim.value, actual=f.value,
+                           detail=f"claim unit {claim.unit}, fact unit {f.unit}")
+        if (f.period_type != claim.period.type or f.end != claim.period.end
+                or (f.start or None) != (claim.period.start or None)):
             return Verdict(claim_id=claim.id, status="fail", reason="wrong_period",
                            claimed=claim.value, actual=f.value,
                            detail=f"claim period {claim.period.start}→{claim.period.end}, fact period {f.start}→{f.end}")
@@ -73,7 +79,8 @@ def _compare(claim: NumericClaim, actual: float, abs_tol: Optional[float] = None
         tol_desc = f"±{abs_tol} abs"
         delta = abs(claim.value - actual)
     else:
-        delta = abs(claim.value - actual) / abs(actual) if actual else float("inf")
+        delta = (abs(claim.value - actual) / abs(actual) if actual
+                 else (0.0 if claim.value == 0 else float("inf")))
         ok = delta <= REL_TOL_REPORTED
         tol_desc = f"±{REL_TOL_REPORTED:.1%} rel"
     return Verdict(claim_id=claim.id, status="pass" if ok else "fail",
@@ -86,6 +93,8 @@ def _compare(claim: NumericClaim, actual: float, abs_tol: Optional[float] = None
 def _safe_eval(expr: str, env: dict[str, float]) -> float:
     """Evaluate + - * / and parens over fact_id symbols. Nothing else."""
     node = ast.parse(expr, mode="eval")
+    if not any(isinstance(n, ast.Name) for n in ast.walk(node)):
+        raise ValueError("derivation must reference a cited fact")
 
     def walk(n: ast.AST) -> float:
         if isinstance(n, ast.Expression):
@@ -244,10 +253,11 @@ def narrative_coverage_audit(brief: Brief, index: Optional[FactIndex] = None,
             continue
         if m.group(2):
             num *= _SCALE[m.group(2).strip()]
-        if 1900 <= num <= 2100 and "." not in raw and not m.group(2):
-            continue  # year
-        if abs(num) < 10 and "." not in raw:
-            continue  # prose counts ("three of the 8 filers")
+        explicit_unit = bool(m.group(2) or m.group(3) or m.group(0).startswith("$"))
+        if 1900 <= num <= 2100 and "." not in raw and not explicit_unit:
+            continue  # year without a financial unit
+        if abs(num) < 100 and "." not in raw and not explicit_unit:
+            continue  # small prose counts and date components
         tokens.append(m.group(0))
         label = _grounded(num, ground, tol, pct_token=m.group(0).rstrip().endswith("%"))
         if label is None:

@@ -1,4 +1,9 @@
-"""Shared synthetic fixture: one fake 10-Q filer ("TEST") with realistic company-facts shape."""
+"""Shared test fixture: one 10-Q filer in company-facts shape.
+
+The figures are Apple's fiscal Q2 2025 values, carried under the placeholder ticker "TEST" and
+the placeholder name "Test Corp", with placeholder CIK and accession numbers. They serve as a
+fixed test vector: the tests check the harness logic against known values, not against Apple.
+"""
 
 import pytest
 

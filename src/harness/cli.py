@@ -8,6 +8,8 @@ import time
 
 from dotenv import load_dotenv
 
+from .config import ConfigError
+
 
 def main(argv: list[str] | None = None) -> int:
     load_dotenv()
@@ -19,7 +21,7 @@ def main(argv: list[str] | None = None) -> int:
     mode.add_argument("--mock", action="store_true", help="deterministic generator + judge, $0")
     mode.add_argument("--real", action="store_true",
                       help="API generator + judge (default provider: gemini; needs its key)")
-    prun.add_argument("--provider", choices=["gemini", "anthropic"], default=None,
+    prun.add_argument("--provider", choices=["gemini"], default=None,
                       help="LLM provider (default: HARNESS_PROVIDER env or gemini)")
     prun.add_argument("--tickers", nargs="+", default=None)
     prun.add_argument("--max-spend", type=float, default=None)
@@ -34,28 +36,32 @@ def main(argv: list[str] | None = None) -> int:
     padv = sub.add_parser("adversarial",
                           help="inject a citation error into a real cached brief; show the verifier catch (red->green)")
     padv.add_argument("--ticker", default="AAPL")
-    padv.add_argument("--provider", choices=["gemini", "anthropic"], default=None,
-                      help="provider whose cached brief to replay (existing demo cache is anthropic-era)")
+    padv.add_argument("--provider", choices=["gemini"], default=None,
+                      help="provider whose cached brief to replay (default: HARNESS_PROVIDER env or gemini)")
     padv.add_argument("--allow-spend", action="store_true",
                       help="permit one live generation if the brief is not cached (default: $0, cache-only)")
 
     pcorpus = sub.add_parser("corpus",
                              help="build the blinded error-injected detection corpus from cached real briefs ($0)")
     pcorpus.add_argument("--tickers", nargs="+", default=None)
-    pcorpus.add_argument("--provider", choices=["gemini", "anthropic"], default=None,
-                         help="provider whose cached generation chain to replay (existing corpus is anthropic-era)")
+    pcorpus.add_argument("--provider", choices=["gemini"], default=None,
+                         help="provider whose cached generation chain to replay (default: HARNESS_PROVIDER env or gemini)")
     pcorpus.add_argument("--out", default="evals/corpus")
 
     args = p.parse_args(argv)
-    if args.cmd == "fetch":
-        return _fetch(args.ticker)
-    if args.cmd == "coverage":
-        return _coverage(args.tickers)
-    if args.cmd == "adversarial":
-        return _adversarial(args)
-    if args.cmd == "corpus":
-        return _corpus(args)
-    return _run(args)
+    try:
+        if args.cmd == "fetch":
+            return _fetch(args.ticker)
+        if args.cmd == "coverage":
+            return _coverage(args.tickers)
+        if args.cmd == "adversarial":
+            return _adversarial(args)
+        if args.cmd == "corpus":
+            return _corpus(args)
+        return _run(args)
+    except ConfigError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
 
 
 def _fetch(ticker: str) -> int:
@@ -100,7 +106,7 @@ def _resolve_provider(args):
     return provider, gen_model, judge_model, make_client(provider)
 
 
-_KEY_ENV = {"gemini": "GEMINI_API_KEY", "anthropic": "ANTHROPIC_API_KEY"}
+_KEY_ENV = {"gemini": "GEMINI_API_KEY"}
 
 
 def _key_missing(provider: str) -> bool:
@@ -123,6 +129,11 @@ def _corpus(args) -> int:
     from pathlib import Path
 
     import yaml
+
+    out = Path(args.out)
+    if out.exists() and any(out.iterdir()):
+        print(f"Corpus output is not empty: {out}. Choose a new --out directory.", file=sys.stderr)
+        return 2
 
     # Cache replay needs no API key: clients are lazy and max_spend=0 aborts any miss.
     _provider, gen_model, judge_model, client = _resolve_provider(args)
@@ -179,8 +190,8 @@ def _corpus(args) -> int:
     counts = "\n".join(f"| {k} | {v} |" for k, v in sorted(by_class.items()))
     (out / "MANIFEST.md").write_text(
         "# Detection corpus — blinded mixed set (clean + error-injected)\n\n"
-        "Built by `python -m harness corpus` from the cached reconciled real briefs. One planted\n"
-        "error per item; item ids are content hashes. **Ground-truth labels live ONLY in\n"
+        "Built by `python -m harness corpus` from cached briefs. Seeded variants contain one planted\n"
+        "error each; unseeded baselines have none added. Item ids are stable identifiers, not content checksums. **Labels live ONLY in\n"
         "`labels.yaml` — an expert labeling blind must not open it.**\n\n"
         f"| class | items |\n|---|---|\n{counts}\n| **total** | **{len(all_items)}** |\n\n"
         "## Blind labeling protocol (expert)\n\n"
@@ -207,7 +218,7 @@ def _run(args) -> int:
 
     tickers = args.tickers or TICKERS
     run_id = args.run_id or time.strftime("%Y%m%d-%H%M%S") + ("-mock" if args.mock else "-real")
-    ledger = Ledger(max_spend=args.max_spend or DEFAULT_MAX_SPEND)
+    ledger = Ledger(max_spend=DEFAULT_MAX_SPEND if args.max_spend is None else args.max_spend)
 
     if args.mock:
         from .generate import MockGenerator
@@ -224,11 +235,13 @@ def _run(args) -> int:
         judge = ApiJudge(client, model=judge_model, ledger=ledger)
 
     results = []
+    aborted = False
     for t in tickers:
         try:
             r = run_ticker(t, generator, judge, run_id, ledger=ledger)
         except BudgetExceeded as exc:
             print(f"BUDGET ABORT before {t}: {exc}", file=sys.stderr)
+            aborted = True
             break
         results.append(r)
         write_result(run_id, r)
@@ -241,7 +254,7 @@ def _run(args) -> int:
         if not args.mock:
             update_readme(summary)  # mock runs never overwrite the README's real-run headline block
         print(f"\nartifacts: out/{run_id}/  ·  spend ${ledger.spend:.2f}")
-    return 0 if results and all(r.status != "FAILED" for r in results) else 1
+    return 0 if not aborted and results and all(r.status != "FAILED" for r in results) else 1
 
 
 if __name__ == "__main__":
